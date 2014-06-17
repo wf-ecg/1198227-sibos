@@ -8,13 +8,13 @@ ROOT = {
     _hosts: {
         'localhost:8000': {
             top: '/',
-            dir: '/wf-ecg/1170361-getcollege',
+            dir: '/wf-ecg/1198227-sibos',
         },
         '10.89.101.100': {
-            dir: '/wf-ecg/1170361-getcollege',
+            dir: '/wf-ecg/1198227-sibos',
         },
         'www.wellsfargomedia.com': {
-            dir: '/gcr',
+            dir: '/sibos',
         },
     },
     _config: function () { /// only top is not a stub
