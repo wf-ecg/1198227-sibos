@@ -5,6 +5,8 @@
 'use strict';
 var Data, Globs, Load, Tests, ShareStrings, switchTo5x = true;
 
+Globs = new Global('Globals');
+
 (function ($, G, M) {
     'use strict';
     var U;
@@ -18,7 +20,7 @@ var Data, Globs, Load, Tests, ShareStrings, switchTo5x = true;
         dir: ROOT.dir + '/',
         lib: ROOT.lib + '/',
         loc: ROOT.dir + '/lib/',
-        src: ROOT.dir + '/scripts/map/',
+        src: ROOT.dir + '/scripts/',
     });
 
     if ($.browser.msie) {

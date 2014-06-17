@@ -85,7 +85,7 @@ function Main(W) {
     }
 
     function _binder() {
-        _dev();
+//        _dev();
         _device();
         _activeNav();
     }
@@ -98,11 +98,10 @@ function Main(W) {
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
-        C.error('init @ ' + Date() + ' debug:', W.debug);
-
         if (self.inited(true)) {
             return null;
         }
+        C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
 
         Init();
         Scroll.init();

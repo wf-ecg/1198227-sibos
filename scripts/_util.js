@@ -110,9 +110,7 @@ var Util = (function (W, $) { /// IIFE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     $.extend(true, self, {
-        arg: _arg,
         dom: _dom,
-        scroll: _scroll,
         flatten: U.flatcat,
         isDef: U.defined,
         I: U.reflect,

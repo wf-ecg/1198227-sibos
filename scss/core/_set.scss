@@ -46,7 +46,7 @@ table {
     width: 100%;
 }
 td img {
-    display: block; // fight html5 table looseness
+    display: inline-block; // fight html5 table looseness
 }
 article, aside, canvas, details, figcaption, figure, // html5 tag render
 footer, header, hgroup, menu, nav, progress, section, summary {
