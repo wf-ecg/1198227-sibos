@@ -1,6 +1,6 @@
-/* mix */
-@import "__fun";
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* mixins */
+
 @mixin clearfix(){
     &:after {
         clear: both;
@@ -35,7 +35,7 @@
 @mixin vgrad($clr1: white, $clr2: black, $per1: 1%, $per2: 77% ){
     @include background-image( linear-gradient(top, $clr1 $per1, $clr2 $per2) );
 }
-
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // GRADS
 @mixin bargrad(){
     background-color: $bar2;
@@ -69,6 +69,7 @@
     background-color: $red2;
     @include background-image( linear-gradient(top, $red1 0%, $red2 100%) );
 }
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // SHADS
 @mixin textShadow() {
     text-shadow: 1px 1px 1px $shad;
@@ -79,7 +80,7 @@
 @mixin whiteShadow() {
     text-shadow: 0 1px 2px #eee;
 }
-
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // FACES
 @mixin sans() {
     font-family: "Myriad", "Myriad Pro", Verdana, Arial, Geneva, sans-serif;
@@ -87,5 +88,4 @@
 @mixin serif() {
     font-family: "Archer", 'Archer Book', Georgia, Times, serif;
 }
-
-//* >^º!º^< */
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //

@@ -1,14 +1,9 @@
-/* fun */
-@import "__def";
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-//fundamental
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* functions */
 
 @function gM($num: 1){
     @return $rem * $num;
 }
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
-//functional
 
 // GENERIC FONT HELPER
 
@@ -19,5 +14,4 @@ $fontServ3: 'http://www.wellsfargomedia.com/lib/fonts/';
 @function woffSrc( $nom: 'Foo', $src: './' ){
     @return local($nom), url( $src + $nom + '.woff') format('woff');
 }
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //

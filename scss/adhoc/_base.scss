@@ -1,5 +1,5 @@
-/* BASE */
-@import "__mix";
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* ADHOC / Base */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 html {
     @include sans;
@@ -113,3 +113,8 @@ html {
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+// [min|max]- width * height
+// [min|max]- device-width * device-height
+// [min|max]- aspect-ratio * device-aspect-ratio
+// orientation :[port|land]
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
