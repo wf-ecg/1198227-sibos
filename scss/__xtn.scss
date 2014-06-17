@@ -1,0 +1,39 @@
+/* xtn */
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+
+%ani {
+    /* foo foo foo */
+    @include backface-visibility( hidden );
+    @include perspective( 1000 );
+    @include transform( scale(1) translate3d(0,0,0) rotate(0deg) );
+    @include transform-style( preserve-3d );
+    @include transition( all 0.125s ease-out 0 );
+}
+%bulge {
+    @include transform( translate(0px, 1px) scale(1.1)  );
+}
+
+//font
+
+%myriad {
+    font-family: "Myriad", "Myriad Pro", Verdana, Geneva, sans-serif;
+}
+%archer {
+    @include nosel();
+    font-family: "Archer", "Archer Book", "archer-med", Georgia, Times, serif;
+}
+
+%archer-bold {
+    font-family: "archer-bold";
+}
+%archer-book {
+    font-family: "archer-book";
+}
+%archer-med {
+    font-family: "archer-med";
+}
+%archer-semi {
+    font-family: "archer-semi";
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //

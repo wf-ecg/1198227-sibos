@@ -1,0 +1,59 @@
+/* LAYOUT */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+#Mobile {
+    display: none;
+}
+#Page {
+    background-color: #fff;
+    border: 1px solid #f8f8f8;
+    margin: 0 auto;
+    position: relative;
+    width: 956px;
+}
+#Feature {
+    margin-left: 28px;
+    overflow: visible;
+    position: relative;
+    width: 898px;
+}
+#Share {
+    float: right;
+
+    .cap {
+        margin-right: 6px;
+        vertical-align: top;
+    }
+}
+
+body {
+    html.desktop & {
+        overflow-y: scroll;
+    }
+    html.mobile & {
+        font-size: 12.5px;
+    }
+    h3.chev {
+        background-color: $light1;
+        margin: 18px -8px 12px;
+        padding: 0;
+        line-height: 22px;
+
+        span {
+            background-image: url(../images/misc/ribron.png);
+            background-repeat: no-repeat;
+            background-position: 100% 50%;
+            color: $prime2;
+            display: inline-block;
+            line-height: 22px;
+            margin: 0;
+            padding: 4px 20px 1px 10px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+    }
+    li {
+        list-style-image: url(../images/misc/bullet.gif);
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

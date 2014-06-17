@@ -1,0 +1,100 @@
+/* MINI LAYOUT */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+$bzW: 600px; $dpW: 320px;
+$bzH: 800px; $dpH: 480px;
+
+$bzL: ($bzW - $dpW) / 2;
+$bzT: ($bzH - $dpH) / 2;
+
+$pt1: 99px;
+$pt3: 66px;
+
+#Feature { // DEV HELP
+    html.dev & .mini {
+        background-color: $hilite !important;
+    }
+    html.dev & .elim {
+        background-color: $dilite !important;
+    }
+}
+.bezel {
+    background-image: url("../images/mobile/bezel.png");
+    margin: auto;
+    padding: $bzT $bzL;
+    position: relative;
+    width: $bzW; height: $bzH;
+
+    body:hover & {
+        z-index: 1;
+    }
+}
+#Mobile {
+    background-color: white;
+    position: relative;
+    width: $dpW; height: $dpH;
+    z-index: -1;
+
+    &.dev {
+        header, footer {
+            border: 1px solid yellow;
+        }
+        section {
+            border: 1px solid red;
+        }
+    }
+
+    header {
+        border-bottom: 1px solid #bbb;
+        overflow: hidden;
+
+        .logobar {
+            @include bargrad();
+            @include nosel();
+
+            background-color: $bar1;
+            box-shadow: 0 0 3px black;
+            color: #fc0;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            z-index: 1;
+
+            img {
+                padding: 6px;
+                width: 50%;
+            }
+        }
+        h1 {
+            @include sans;
+
+            color: black;
+            display: block;
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 130%;
+            padding: 9px 6px 3px;
+        }
+    }
+    section.port {
+        height: 375px;
+        // SEE _MINI_PORT.SCSS
+    }
+    footer {
+        bottom: 0;
+        font-size: 9px;
+        overflow: hidden;
+        padding: $minim;
+        position: absolute;
+        z-index: 9;
+
+        p {
+            margin: 0;
+        }
+        .reins {
+            width: 120%;
+            margin: 0px -10% (-$minim);
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -1,0 +1,115 @@
+/* BASE */
+@import "__mix";
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+html {
+    @include sans;
+
+    font-size: 11.5px;
+    height: 100%;
+    line-height: 145%;
+    position: absolute;
+    width: 100%;
+
+    body {
+        a {
+            text-decoration: underline;
+
+            &.hover, &:hover {
+                text-decoration: none;
+            }
+        }
+        button {
+            cursor: pointer;
+        }
+        hr {
+            border: 0px solid white;
+            border-top-width: 2px;
+            clear: both;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            @include serif;
+
+            clear: both;
+            line-height: 1.0;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-weight: 900;
+            font-size: 180%;
+        }
+        h2 {
+            font-size: 23px;
+            font-weight: 600;
+            line-height: 26px;
+            margin-bottom: 7px;
+
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 24px;
+
+        }
+        h4 {
+            font-weight: 400;
+            font-size: 120%;
+        }
+        h5 {
+            font-weight: 300;
+            font-size: 100%;
+        }
+        h6 {
+            font-weight: 200;
+            font-size: 80%;
+        }
+        img {
+            @include nosel();
+            background-repeat: no-repeat;
+            border: 0;
+            //max-width: 100%;
+        }
+        strong {
+            font-weight: bold;
+        }
+        table {
+            border-collapse: collapse;
+            clear: both;
+        }
+    }
+}
+html {
+    body {
+        @include bodyGrad();
+        background-attachment: fixed;
+
+        a {
+            color: $link;
+        }
+        button {
+            &.hover, &:hover {
+                cursor: pointer;
+                border-style: outset;
+            }
+            &:active {
+                cursor: move;
+                border-style: inset;
+            }
+        }
+        h2, h3 {
+            color: $prime1;
+        }
+        p, li {
+            font-family: Verdana, Geneva, sans-serif;
+            margin-bottom: 11px;
+            text-indent: 1px;
+        }
+        ul {
+            font-size: 100%;
+            list-style-type: square;
+            margin-top: 9px;
+            padding-left: 22px;
+        }
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

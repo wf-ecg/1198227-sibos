@@ -1,0 +1,73 @@
+/* def */
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "animation";
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+// misc
+
+$rem: 1rem; $hem: 0.5rem; $qem: 0.25rem;
+$link: #336699;
+$layers: '../images/layers';
+$resp: 800px;
+$debug: 1;
+$remx: 12px;
+$hilite: rgba(255, 255, 99, 0.3);
+$dilite: rgba(255, 99, 255, 0.3);
+
+$minim: 5px;
+
+// fonts
+$SM: 0.666rem;
+$MD: 0.8rem;
+$LG: 1.1rem;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+//color
+
+$navback1: #9f958d; $navback2: #837970;
+$navfore1: #62564b; $navfore2: #4c443d;
+
+$red: #bb0826;
+$gold: #fcc60a;
+
+$prime1: $red;
+$prime2: white;
+$light1: #e0dddb;
+$light2: #f5f5f4;
+
+
+$shad1: rgba( 123, 123, 123, 0.123 );
+$shad2: rgba( 23, 23, 23, 0.23 );
+$shad3: rgba( 77, 77, 77, 0.7 );
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+//color
+
+$bar1: #D4002F;     $bar2: #83001C;
+$beige1:#eeeeee;    $beige2: #cccccc;
+$blue1: #779fdf;    $blue2: #6b83b2;
+$gray1: #999;       $gray2: #777;
+$red1:  #c21737;    $red2: #8c081d;
+$brown: #973f1e;
+$brick: #bb0826;
+$blue:  #336699;
+$paper: #f9f6f1;
+
+$clear:  rgba(255,255,255,0);
+$pale:   rgba(255,255,255,0.7);
+$target: rgba(255, 111, 111, 0.5); // #ff5555; reddish
+
+$shad:   rgba(0,0,0,0.33);
+$shad1:  rgba( 123, 123, 123, 0.123 );
+$shad2:  rgba( 23, 23, 23, 0.23 );
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
+//shade
+
+$lite: rgb( 250, 250, 250 );   // lite-lite
+$gryL: rgb( 230, 230, 230 );   // lite-gray
+$gryM: rgb( 155, 155, 155 );   // dark-midd
+$gryD: rgb( 111, 111, 111 );   // dark-gray
+$dark: rgb(  55,  55,  55 );   // dark-dark
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
