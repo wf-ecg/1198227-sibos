@@ -17,7 +17,7 @@ function Main(W) {
             bnr4: 'explore.html',
             bnr5: 'about.html',
             bnr6: 'booth.html',
-            bnr7: '../media/Momentum_Sibos2013.pdf',
+            bnr7: '../media/Momentum_Sibos2014.pdf',
             bnr8: 'booth.html',
         },
     };
@@ -31,7 +31,7 @@ function Main(W) {
             about:      ["About Wells Fargo",   'Learn about the #WellsFargo Global Financial Institutions business'],
             booth:      ["Visit Our Booth",     'See pics of the #WellsFargo booth & learn about events being hosted'],
             events:     ["Sibos Events",        'Learn more about the #WellsFargo events at #Sibos'],
-            explore:    ["Explore Dubai",       'See what Dubai has to offer at #Sibos 2013'],
+            explore:    ["Explore Boston",      'See what Boston has to offer at #Sibos 2014'],
             giving:     ["Charitable Giving",   'Learn more about the #WellsFargo charity programs at #Sibos'],
             home:       ["Home",                'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
             speakers:   ["Sibos Speakers",      'Learn about the #WellsFargo Global Financial Institutions publications'],
@@ -39,10 +39,10 @@ function Main(W) {
         };
         try {
             ShareStrings = {
-                url: 'http://wellsfargomedia.com/sibos2013/pages/' + raw.join('.'),
-                tab: 'Wells Fargo at Sibos 2013 – ' + pageHash[raw[0]][0],
+                url: 'http://wellsfargomedia.com/sibos/pages/' + raw.join('.'),
+                tab: 'Wells Fargo at Sibos 2014 – ' + pageHash[raw[0]][0],
                 sum: pageHash[raw[0]][1],
-                img: 'http://wellsfargomedia.com/sibos2013/images/header/wf-sibos.png',
+                img: 'http://wellsfargomedia.com/sibos/images/header/wf.png',
             };
 
             $('#head0').text(ShareStrings.tab);

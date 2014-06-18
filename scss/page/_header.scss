@@ -9,8 +9,11 @@
 
         .mast {
             height: 80px;
-            .logo {
+            h1 {
                 float: left;
+            }
+            .logo {
+                margin-right: 1em;
             }
             .stage {
                 float: right;
