@@ -24,7 +24,7 @@
             }
         }
         a.learn {
-            @include sans;
+            @include font-thick();
 
             float: right;
             font-size: 12px;

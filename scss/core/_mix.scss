@@ -82,10 +82,16 @@
 }
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // FACES
-@mixin sans() {
-    font-family: "Myriad", "Myriad Pro", Verdana, Arial, Geneva, sans-serif;
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+@mixin font-archer() {
+    //font-family: 'Archer A', 'Archer B', Georgia, serif;
+    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
 }
-@mixin serif() {
-    font-family: "Archer", 'Archer Book', Georgia, Times, serif;
+@mixin font-plain() {
+    font-family: Helvetica, Arial, Geneva, sans-serif;
+}
+@mixin font-thick() {
+    font-family: Verdana, sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //

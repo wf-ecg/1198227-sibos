@@ -21,27 +21,4 @@
     @include transform( translate(0px, 1px) scale(1.1)  );
 }
 
-//font
-
-%myriad {
-    font-family: "Myriad", "Myriad Pro", Verdana, Geneva, sans-serif;
-}
-%archer {
-    @include nosel();
-    font-family: "Archer", "Archer Book", "archer-med", Georgia, Times, serif;
-}
-
-%archer-bold {
-    font-family: "archer-bold";
-}
-%archer-book {
-    font-family: "archer-book";
-}
-%archer-med {
-    font-family: "archer-med";
-}
-%archer-semi {
-    font-family: "archer-semi";
-}
-
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //

@@ -4,7 +4,7 @@
 #Mobile {
     nav {
         @include whiteShadow;
-        @include serif;
+        @include font-archer();
 
         border-top: 2px solid white;
         border-bottom: 1px solid white;

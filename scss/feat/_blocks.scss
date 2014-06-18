@@ -27,7 +27,7 @@
             margin: -8px -8px 12px;
         }
         a.learn {
-            @include sans;
+            @include font-plain();
 
             float: right;
             font-size: 9px;

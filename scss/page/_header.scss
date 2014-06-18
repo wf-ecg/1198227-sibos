@@ -18,9 +18,9 @@
         }
         nav { /* baseline */
             @include navBack();
+            @include font-thick();
 
             color: gray;
-            font-family: Verdana, Geneva, sans-serif;
             font-size: 13px;
             height: 24px;
             margin-top: 13px;
