@@ -47,7 +47,6 @@ Globs = new Global('Globals');
             G.lib + 'ie/respond.min.js',
             ],
         both: [
-            G.lib + 'underscore/js-1.4.4/lodash.underscore.js',
             G.lib + 'video-js/4.2.1/video-js.css',
             G.lib + 'video-js/4.2.1/video.dev.js',
             /* */
