@@ -10,7 +10,10 @@ function startSharing() {
         stLight = W.stLight || {};
         stLight.options({
             publisher: "82e0d732-4a87-44d4-9685-61131d7a57b6",
-            onhover: false
+            onhover: false,
+            doNotHash: true,
+            doNotCopy: true,
+            hashAddressBar: false
         });
         stWidget.addEntry({
             element: D.getElementById('st_twitter'),
