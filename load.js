@@ -84,6 +84,7 @@ Globs = new Global('Globals');
         complete: function () {
             U = Util; // Main.init();
             Main(W).init();
+            $('body').removeClass('loading');
         },
     };
 
