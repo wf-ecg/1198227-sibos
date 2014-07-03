@@ -32,7 +32,14 @@ body {
         }
     }
     a.popup {
-        cursor: move;
+        cursor: pointer;
+        cursor: default;
+
+        img {
+            border: 1px solid #aaa;
+            border-radius: 3px;
+            margin: 1em;
+        }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
