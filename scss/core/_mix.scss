@@ -43,7 +43,7 @@
 }
 @mixin navBack(){
     background-color: $navback1;
-    @include vgrad( $navback1, $navback2);
+    @include vgrad( $navback1, $bar2);
 }
 @mixin navFore(){
     background-color: $navfore1;
@@ -51,7 +51,7 @@
 }
 @mixin bodyGrad(){
     background-color: #ddd;
-    @include vgrad( #fff, #ddd, 44%, 88%);
+    @include vgrad( #ccc, #ddd, 44%, 88%);
 }
 @mixin lightGrad(){
     background-color: $beige2;
