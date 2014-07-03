@@ -57,7 +57,7 @@ var Banner;
         .fadeOut(Df.time, function () {
             W.setTimeout(function () {
                 _runfade(); // recurses
-            }, Df.time * 9);
+            }, Df.time * 3);
         });
     }
 
