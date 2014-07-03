@@ -72,6 +72,7 @@ Globs = new Global('Globals');
 
     Load.main = {
         both: [
+            G.src + 'metas.js',
             G.src + '_util.js',
             G.src + 'banner.js',
             G.src + 'extract.js',

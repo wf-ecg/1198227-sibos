@@ -1,8 +1,12 @@
 /*jslint es5:true, white:false */
 /*globals window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-(function (W) {
-    var i, metas = [ '',
+var W = window,
+C = W.console,
+D = W.document;
+
+(function () {
+    var i, metas = [
     '<meta id="head1" name="title"              content="">',
     '<meta id="head2" name="description"        content="">',
     '<meta id="head3" property="og:title"       content="">',
@@ -14,7 +18,7 @@
     ];
 
     for (i = 1; i < metas.length; i++) {
-        W.document.writeln(metas[i]);
+        $(metas[i]).insertAfter('#head0');
     }
 
 }(window));
