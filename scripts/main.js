@@ -73,7 +73,7 @@ function Main(W) {
     }
 
     function _dev() {
-        if (W.location.hostname === 'localhost' && W.debug > 0) {
+        if (ROOT.conf.nom === 'localhost' && W.debug > 0) {
             $('html').addClass('dev');
         }
     }
