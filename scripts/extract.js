@@ -1,12 +1,11 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, Main, Mobile, Page, window */
+/*globals _, C, W, Globs, Util, jQuery,
+        Main, Mobile, Page, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Extract;
-
-(function (W) {
+var Extract = (function ($, G, U) { // IIFE
+    'use strict';
     var name = 'Extract',
-        self = new Global(name, '(page parser and storage)'),
-        C = W.console,
+        self = new G.constructor(name, '(page parser and storage)'),
         Df;
 
     Df = { // DEFAULTS
@@ -24,16 +23,22 @@ var Extract;
             this.cache = $(this.cache);
             this.mobile = $(this.mobile);
             $.extend(this.caches, this.stored);
-            W.debug > 0 && C.debug(name, 'Df.inits\n', Df);
+
+            if (U.debug()) {
+                C.debug(name, 'Df.inits\n', Df);
+            }
         },
     };
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
     function _get(url, sel, cb) {
         cb = (cb || Main.cb);
-        W.debug > 0 && C.debug(name + '_get', [url, sel]);
 
+        if (U.debug()) {
+            C.debug(name + '_get', [url, sel]);
+        }
         Df.select = sel;
         return (Df.caches[url] = new Page(url, cb));
     }
@@ -108,7 +113,7 @@ var Extract;
         _loadNav($.Deferred()).done(cb);
     }
 
-    W[name] = $.extend(true, self, {
+    $.extend(self, {
         _: function () {
             return Df;
         },
@@ -117,8 +122,7 @@ var Extract;
     });
 
     return self;
-
-}(window));
+}(jQuery, Globs, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 

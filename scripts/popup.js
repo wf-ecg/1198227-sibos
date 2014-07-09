@@ -1,16 +1,16 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, Main, _, videojs, window */
+/*globals _, C, W, Globs, Util, jQuery,
+        Main, videojs, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Popup;
-
-(function (W) {
+var Popup = (function ($, G, U) { // IIFE
+    'use strict';
     var name = 'Popup',
-        self = new Global(name, '(popup background and display media)'),
-        C = W.console,
+        self = new G.constructor(name, '(popup background and display media)'),
         Df;
 
     Df = { // DEFAULTS
     };
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _pic(i, e) {
@@ -47,9 +47,9 @@ var Popup;
 
     function _vid(i, e) {
         var lnk = $(e),
-            vid = $('#' + lnk.data('title')),
-            div = vid.parent(),
-            vip;
+        vid = $('#' + lnk.data('title')),
+        div = vid.parent(),
+        vip;
 
         lnk.bind('mouseup', function () {
             div.trigger('show.vid');
@@ -107,7 +107,7 @@ var Popup;
         _binding();
     }
 
-    W[name] = $.extend(true, self, {
+    $.extend(self, {
         _: function () {
             return Df;
         },
@@ -116,7 +116,8 @@ var Popup;
         popupVid: _vid,
     });
 
-}(window));
+    return self;
+}(jQuery, Globs, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 

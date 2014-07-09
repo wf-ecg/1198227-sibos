@@ -82,8 +82,8 @@ Globs = new Global('Globals');
             G.src + 'main.js',
             ],
         complete: function () {
-            U = Util; // Main.init();
-            Main(W).init();
+            U = Util;
+            Main.init();
             ROOT.loaded();
         },
     };
