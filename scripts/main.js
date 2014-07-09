@@ -1,11 +1,11 @@
 /*jslint es5:true, white:false */
-/*globals $, Banner, Extract, Global, Mobile, Popup, Scroll, ShareStrings:true, _mobile */
+/*globals _, C, W, Globs, Util, jQuery,
+        Banner, Extract, Mobile, Popup, Scroll, ShareStrings:true, _mobile, ROOT, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-function Main(W) {
+var Main = (function ($, G, U) { // IIFE
+    'use strict';
     var name = 'Main',
-        self = new Global(name, '(kicker and binder)'),
-        C = W.console,
+        self = new G.constructor(name, '(kicker and binder)'),
         Df;
 
     Df = { // DEFAULTS
@@ -28,9 +28,10 @@ function Main(W) {
             bnr15: '#',
         },
     };
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-    function Init() {
+    function dfInit() {
         var raw, pageHash;
 
         raw = W.location.pathname.split('/').pop().match(/\w+/g);
@@ -73,7 +74,7 @@ function Main(W) {
     }
 
     function _dev() {
-        if (W.location.hostname === 'localhost' && W.debug > 0) {
+        if (ROOT.conf.nom === 'localhost' && W.debug > 0) {
             $('html').addClass('dev');
         }
     }
@@ -110,7 +111,7 @@ function Main(W) {
         }
         C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
 
-        Init();
+        dfInit();
         Scroll.init();
 
         if (_whatPage() === 'mini.html'){
@@ -125,7 +126,7 @@ function Main(W) {
         Popup.init();
     }
 
-    W[name] = $.extend(true, self, {
+    $.extend(self, {
         _: function () {
             return Df;
         },
@@ -137,13 +138,13 @@ function Main(W) {
             C.debug.apply(C, [name, 'callback'].concat(arguments));
         },
     });
+
     return self;
-}
+}(jQuery, Globs, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /*
-
 
 
 

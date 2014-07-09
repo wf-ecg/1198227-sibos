@@ -1,12 +1,11 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, window */
+/*globals _, C, W, Globs, Util, jQuery,
+        */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Banner;
-
-(function (W) {
+var Banner = (function ($, G, U) { // IIFE
+    'use strict';
     var name = 'Banner',
-        self = new Global(name, '(fade and loop)'),
-        C = W.console,
+        self = new G.constructor(name, '(fade and loop)'),
         Df;
 
     Df = { // DEFAULTS
@@ -18,8 +17,9 @@ var Banner;
             this.all.css({
                 position: 'absolute',
             });
-        }
+        },
     };
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _reinImage() {
@@ -47,7 +47,9 @@ var Banner;
             Df.now = Df.total - 1;
             Df.all.fadeIn(0);
         }
-        W.debug > 1 && C.debug(Df.now);
+        if (U.debug(2)) {
+            C.debug(Df.now);
+        }
     }
 
     function _runfade() {
@@ -99,7 +101,7 @@ var Banner;
 //        });
     }
 
-    W[name] = $.extend(true, self, {
+    $.extend(self, {
         _: function () {
             return Df;
         },
@@ -108,13 +110,11 @@ var Banner;
     });
 
     return self;
-
-}(window));
+}(jQuery, Globs, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /*
-
 
 
 

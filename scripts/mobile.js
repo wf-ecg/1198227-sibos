@@ -1,12 +1,11 @@
 /*jslint es5:true, white:false */
-/*globals $, Extract, Global, Main, window */
+/*globals _, C, W, Globs, Util, jQuery,
+        Extract, Main, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Mobile;
-
-(function (W) {
+var Mobile = (function ($, G, U) { // IIFE
+    'use strict';
     var name = 'Mobile',
-        self = new Global(name, '(mobile nav and page swapper)'),
-        C = W.console,
+        self = new G.constructor(name, '(mobile nav and page swapper)'),
         Df;
 
     Df = { // DEFAULTS
@@ -29,9 +28,13 @@ var Mobile;
             Df.wide = Df.nav.parent().innerWidth() || 300;
             Df.high = Df.nav.parent().outerHeight();
             Df.left = (parseInt(Df.nav.parent().css('left'), 10) || 0);
-            W.debug > 0 && C.debug(name, 'Df.inits\n', Df);
+
+            if (U.debug()) {
+                C.debug(name, 'Df.inits\n', Df);
+            }
         }
     };
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _slide(jq, num1, num2, cb) {
@@ -67,12 +70,16 @@ var Mobile;
     }
 
     function _drill(jq) {
-        W.debug > 0 && C.debug(name + '_drill', jq);
+        if (U.debug()) {
+            C.debug(name + '_drill', jq);
+        }
         _revealPage(jq, true);
     }
 
     function _home() {
-        W.debug > 0 && C.debug(name + '_home', Df.current);
+        if (U.debug()) {
+            C.debug(name + '_home', Df.current);
+        }
         _revealPage(Df.current, false);
     }
 
@@ -133,7 +140,9 @@ var Mobile;
 
         evt.preventDefault();
         str = Main.page(str);
-        W.debug > 0 && C.debug(name + '_capture', str);
+        if (U.debug()) {
+            C.debug(name + '_capture', str);
+        }
         Extract.page(str, $.Deferred().done(_drill));
     }
 
@@ -152,7 +161,7 @@ var Mobile;
         _capture();
     }
 
-    W[name] = $.extend(true, self, {
+    $.extend(self, {
         _: function () {
             return Df;
         },
@@ -162,8 +171,7 @@ var Mobile;
     });
 
     return self;
-
-}(window));
+}(jQuery, Globs, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -182,6 +190,5 @@ find nav
         article group?
         take composition cues from ajax page
         a div in there suggest what to knit
-
 
  */

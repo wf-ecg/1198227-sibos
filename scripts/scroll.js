@@ -1,12 +1,11 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, window */
+/*globals _, C, W, Globs, Util, jQuery,
+        */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Scroll;
-
-(function (W) {
+var Scroll = (function ($, G, U) { // IIFE
+    'use strict';
     var name = 'Scroll',
-        self = new Global(name, '(scroll and do it smooth)'),
-        C = W.console,
+        self = new G.constructor(name, '(scroll and do it smooth)'),
         Df;
 
     Df = { // DEFAULTS
@@ -16,6 +15,7 @@ var Scroll;
         funum: 200,
         mysel: '.tofix',
     };
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _scroll(ele, amt) {
@@ -24,7 +24,9 @@ var Scroll;
 
         var $me = $(ele);
 
-        W.debug > 0 && C.debug(name + '_scroll', '\n', amt + 'px', [$me]);
+        if (U.debug()) {
+            C.debug(name + '_scroll', '\n', amt + 'px', [$me]);
+        }
 
         // look before leap
         if ($me.length) {
@@ -55,8 +57,10 @@ var Scroll;
 
     function _bind() {
         $(W).on('scroll', function (evt) {
-            var me = _fixit(),
-                off = this.pageYOffset;
+            var me, off;
+
+            me = _fixit();
+            off = this.pageYOffset;
 
             if (!me) {
                 return;
@@ -103,7 +107,12 @@ var Scroll;
     });
 
     return self;
-
-}(window));
+}(jQuery, Globs, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*
+
+
+
+ */

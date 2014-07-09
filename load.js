@@ -33,10 +33,10 @@ Globs = new Global('Globals');
             });
         });
     }
-    if (($.now() > new Date('2014/06/29')) || W.isIE || W.location.hostname === 'www.wellsfargomedia.com') {
+    if (($.now() > new Date('2014/06/29')) || W.isIE || ROOT.conf.nom === 'wfmedia') {
         W.debug--;
     }
-    if (W.location.hostname === 'localhost') {
+    if (ROOT.conf.nom === 'localhost') {
         W.debug++ > 1 && $('html').addClass('debug');
     }
 
@@ -59,7 +59,7 @@ Globs = new Global('Globals');
     };
 
     Load.font = {
-        test: ROOT.host === 'localhost:8000' || ROOT.host === '10.89.101.101',
+        test: ROOT.conf.nom === 'localhost' || ROOT.conf.nom === 'qla2',
         yep: [
             G.lib + 'fonts/archer.ssm.css',
             G.lib + 'fonts/archer.ssm.itl.css',
@@ -82,9 +82,9 @@ Globs = new Global('Globals');
             G.src + 'main.js',
             ],
         complete: function () {
-            U = Util; // Main.init();
-            Main(W).init();
-            $('body').removeClass('loading');
+            U = Util;
+            Main.init();
+            ROOT.loaded();
         },
     };
 
