@@ -98,7 +98,7 @@ var Scroll = (function ($, G, U) { // IIFE
         //_scroll(); // wake up
     }
 
-    W[name] = $.extend(true, self, {
+    $.extend(self, {
         _: function () {
             return Df;
         },
