@@ -59,7 +59,7 @@ Globs = new Global('Globals');
     };
 
     Load.font = {
-        test: ROOT.conf.nom === 'localhost' || ROOT.conf.nom === 'qla2',
+        test: ROOT.conf.nom === 'localhost' || ROOT.conf.nom === 'qla1',
         yep: [
             G.lib + 'fonts/archer.ssm.css',
             G.lib + 'fonts/archer.ssm.itl.css',

@@ -30,18 +30,15 @@
             overflow: hidden;
 
             a {
-                @include font-archer;
                 -webkit-font-smoothing: subpixel-antialiased;
                 color: #eee;
                 border-right: 1px solid #aaa;
                 display: block;
                 float: left;
-                font-weight: bold;
                 margin: 0;
                 opacity: 0.7;
                 padding: 5px 12px;
                 text-decoration: none;
-                text-transform: uppercase;
             }
             a:hover {
                 @include navBack();
@@ -54,6 +51,10 @@
                 @include navBack();
                 color: #ffda0b;
                 opacity: 1;
+
+                .msie & {
+                    background-color: #ae1e23;
+                }
             }
         }
     }
