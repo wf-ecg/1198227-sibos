@@ -23,10 +23,16 @@ var Mobile = (function ($, G, U) { // IIFE
         inits: function () {
             Df.bezel = $(Df.bezel);
             Df.mobile = $(Df.mobile).show();
+            if (!Df.bezel.length) {
+                Df.mobile.css({
+                    height: jsView.port.layoutHeight(),
+                    width: jsView.port.layoutWidth(),
+                });
+            }
             Df.nav = Df.mobile.find('article').first().addClass('nav');
             // get width (and offset)
             Df.wide = Df.nav.parent().innerWidth() || 300;
-            Df.high = Df.nav.parent().outerHeight();
+            Df.high = Df.nav.parent().parent().outerHeight() - 104;
             Df.left = (parseInt(Df.nav.parent().css('left'), 10) || 0);
 
             if (U.debug()) {
