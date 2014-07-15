@@ -1,11 +1,8 @@
 *.mp4
 *.ogv
 *.pdf
-*.swf
-*.webm
-styles/
-media/100/
-media/750/
-media/2000/
-images/sequence/*
 *.psd
+*.webm
+images/sequence
+media*/*/*
+styles
