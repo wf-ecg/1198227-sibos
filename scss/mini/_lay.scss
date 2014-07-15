@@ -1,5 +1,5 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* MINI / Layout */
+/* MINI / Lay */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 $bzW: 600px; $dpW: 320px;
 $bzH: 800px; $dpH: 480px;
@@ -46,7 +46,9 @@ $pt3: 66px;
 
     header {
         border-bottom: 1px solid #bbb;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         overflow: hidden;
+        z-index: 9;
 
         .logobar {
             @include bargrad();
@@ -66,12 +68,10 @@ $pt3: 66px;
             }
         }
         h1 {
-            @include font-thick();
-
             color: black;
             display: block;
             font-size: 17px;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 130%;
             padding: 9px 6px 3px;
         }
@@ -82,10 +82,12 @@ $pt3: 66px;
     }
     footer {
         bottom: 0;
+        box-shadow: 0 -1px 3px rgba(0,0,0,0.3);
         font-size: 9px;
         overflow: hidden;
         padding: $minim;
         position: absolute;
+        width: 100%;
         z-index: 9;
 
         p {
