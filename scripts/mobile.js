@@ -34,7 +34,7 @@ var Mobile = (function ($, G, U) { // IIFE
             Df.nav = Df.mobile.find('article').first().addClass('nav');
             // get width (and offset)
             Df.wide = Df.nav.parent().innerWidth() || 300;
-            Df.high = Df.nav.parent().parent().outerHeight() - 111;
+            Df.high = Df.nav.parent().parent().outerHeight() - 99;
             Df.left = (parseInt(Df.nav.parent().css('left'), 10) || 0);
 
             if (U.debug()) {
@@ -54,7 +54,9 @@ var Mobile = (function ($, G, U) { // IIFE
         return !!(ts1 && ts2 && ts3);
     }
 
-    function share() {
+    function share(evt) {
+        evt.stopPropagation();
+
         Df.share.fadeIn(function () {
             Df.share.css({
                 display: 'table',

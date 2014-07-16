@@ -31,8 +31,8 @@
 
             a {
                 -webkit-font-smoothing: subpixel-antialiased;
-                color: #eee;
-                border-right: 1px solid #aaa;
+                color: $lightest;
+                border-right: 1px solid $light;
                 display: block;
                 float: left;
                 margin: 0;
@@ -49,7 +49,7 @@
             }
             a.active {
                 @include navBack();
-                color: #ffda0b;
+                color: $gold0;
                 opacity: 1;
 
                 .msie & {
