@@ -1,8 +1,18 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* MINI */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+$bzW: 600px; $dpW: 320px;
+$bzH: 800px; $dpH: 480px;
+
+$bzL: ($bzW - $dpW) / 2;
+$bzT: ($bzH - $dpH) / 2;
+
+$pt1: 99px;
+$pt3: 66px;
+
 @import "_btn";
+@import "_hdr-ftr";
+@import "_misc";
 @import "_nav";
-@import "_lay";
 @import "_port";
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //

@@ -1,0 +1,48 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* MINI / Misc */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.bezel {
+    background-image: url("../images/mobile/bezel.png");
+    margin: auto;
+    padding: $bzT $bzL;
+    position: relative;
+    width: $bzW; height: $bzH;
+
+    body:hover & {
+        z-index: 1;
+    }
+}
+
+#Feature {
+    html.dev & .mini {
+        background-color: $hilite !important;
+    }
+    html.dev & .elim {
+        background-color: $dilite !important;
+    }
+}
+#Mobile {
+    background-color: white;
+    height: $dpH;
+    position: relative;
+    width: $dpW;
+    z-index: -1;
+
+    > article {
+        overflow: auto;
+    }
+}
+#Share {
+    height: 80px;
+    margin-top: -80px;
+    position: relative;
+    width: 100%;
+
+    > span {
+        background-color: white;
+        display: table-cell;
+        text-align: center;
+        vertical-align: bottom;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
