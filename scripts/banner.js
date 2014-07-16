@@ -21,24 +21,21 @@ var Banner = (function ($, G, U) { // IIFE
     };
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
 
-    function _reinImage() {
-        var img, cls, div;
+    function binder(obj) {
+        $.each(obj, function (i, e) {
+            var anc;
 
-        img = $('img.reins');
-        cls = img.attr('class');
-        div = img.wrap('<div>').parent();
-        div.addClass(cls);
-
-        img.removeClass(cls).remove();
-        div.css({
-            backgroundImage: 'url(' + img.attr('src') + ')',
+            if (e !== '#') {
+                anc = $('<a>').attr('href', e);
+                $('.' + i).wrap(anc);
+            }
         });
-        W.setTimeout(function () {
-            div.css('backgroundSize', '100% 100%');
-        }, 1);
-        return;
     }
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // INTERNALS
 
     function descend() {
         Df.now--;
@@ -63,24 +60,9 @@ var Banner = (function ($, G, U) { // IIFE
         });
     }
 
-    function _blotto() {
-        var me = $('.reins.small'),
-            mq = $('<div>').addClass('blot small');
-        me.after(mq);
-
-        var me1 = $('.reins.large'),
-            mq1 = $('<div>').addClass('blot large');
-        me1.after(mq1);
-
+    function _binding() {
+        $('#Banner').fadeOut(1).fadeIn(999);
     }
-
-    function _binder(obj) {
-        $.each(obj, function (i, e) {
-            var anc = $('<a>').attr('href', e);
-            $('.' + i).wrap(anc);
-        });
-    }
-
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init(obj) {
@@ -88,17 +70,12 @@ var Banner = (function ($, G, U) { // IIFE
             return null;
         }
         Df.inits();
-        _blotto();
         _runfade();
 
         if (obj) {
-            _binder(obj);
+            binder(obj);
         }
-
-        $('#Banner').fadeOut(1).fadeIn(999);
-//        $('.reins').on('click', function () {
-//            W.isIE || _reinImage();
-//        });
+        _binding();
     }
 
     $.extend(self, {
@@ -106,7 +83,6 @@ var Banner = (function ($, G, U) { // IIFE
             return Df;
         },
         init: _init,
-        wrap: _reinImage,
     });
 
     return self;

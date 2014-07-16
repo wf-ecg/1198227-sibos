@@ -66,7 +66,7 @@ var Extract = (function ($, G, U) { // IIFE
     }
 
     function _homeBtn(jq) {
-        Df.home.clone().click(Mobile.home).prependTo(jq);
+        Df.home.clone().prependTo(jq).add('header').click(Mobile.home);
     }
 
     function _loadNav(doing) { // get nav html

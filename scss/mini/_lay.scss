@@ -47,6 +47,7 @@ $pt3: 66px;
     header {
         border-bottom: 1px solid #bbb;
         box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        height: 68px;
         overflow: hidden;
         z-index: 9;
 
@@ -84,6 +85,7 @@ $pt3: 66px;
         bottom: 0;
         box-shadow: 0 -1px 3px rgba(0,0,0,0.3);
         font-size: 9px;
+        height: 42px;
         overflow: hidden;
         padding: $minim;
         position: absolute;
