@@ -83,6 +83,8 @@ var Mobile = (function ($, G, U) { // IIFE
     function _revealPage(jq, yes) {
         if (!Df.atnav) {
             Df.current.hide();
+        } else if (!yes) {
+            return;
         }
         Df.current = jq;
 
@@ -165,7 +167,8 @@ var Mobile = (function ($, G, U) { // IIFE
         drill: function (jq) {
             _revealPage(jq, true);
         },
-        home: function _home() {
+        home: function (evt) {
+            evt.preventDefault();
             _revealPage(Df.current, false);
         },
         slider: _slider,
