@@ -45,16 +45,13 @@ $pt3: 66px;
     }
 
     header {
-        border-bottom: 1px solid #bbb;
         box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        height: 68px;
         overflow: hidden;
         z-index: 9;
 
         .logobar {
             @include bargrad();
             @include nosel();
-
             background-color: $bar1;
             box-shadow: 0 0 3px black;
             color: #fc0;
@@ -64,15 +61,17 @@ $pt3: 66px;
             z-index: 1;
 
             img {
-                padding: 6px;
-                width: 50%;
+                padding: 4px;
+                width: 40%;
             }
         }
         h1 {
+            @include lightGrad();
             color: black;
             display: block;
             font-size: 17px;
             font-weight: 700;
+            height: 38px;
             line-height: 130%;
             padding: 9px 6px 3px;
         }
@@ -82,6 +81,7 @@ $pt3: 66px;
         // SEE _MINI_PORT.SCSS
     }
     footer {
+        @include lightGrad();
         bottom: 0;
         box-shadow: 0 -1px 3px rgba(0,0,0,0.3);
         font-size: 9px;

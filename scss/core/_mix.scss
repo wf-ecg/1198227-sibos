@@ -50,12 +50,12 @@
     @include vgrad( $navfore1, $navfore2);
 }
 @mixin bodyGrad(){
-    background-color: #ddd;
-    @include vgrad( #ccc, #ddd, 44%, 88%);
+    background-color: $lighter;
+    @include vgrad( $light, $lighter, 44%, 88%);
 }
 @mixin lightGrad(){
-    background-color: $beige2;
-    @include background-image( linear-gradient(top, $beige1 0%, $beige2 100%) );
+    background-color: $light;
+    @include background-image( linear-gradient(top, $lightest 0%, $light 100%) );
 }
 @mixin blueGrad(){
     background-color: $blue2;
@@ -72,13 +72,13 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // SHADS
 @mixin textShadow() {
-    text-shadow: 1px 1px 1px $shad;
+    text-shadow: 1px 1px 1px $shad0;
 }
 @mixin thinShadow() {
     text-shadow: 0px 1px 1px black;
 }
 @mixin whiteShadow() {
-    text-shadow: 0 1px 2px #eee;
+    text-shadow: 0 1px 2px $lightest;
 }
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 // FACES
