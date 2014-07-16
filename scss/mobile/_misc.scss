@@ -3,10 +3,11 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .bezel {
     background-image: url("../images/mobile/bezel.png");
+    height: $bzH;
     margin: auto;
     padding: $bzT $bzL;
     position: relative;
-    width: $bzW; height: $bzH;
+    width: $bzW;
 
     body:hover & {
         z-index: 1;
