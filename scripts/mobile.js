@@ -34,7 +34,7 @@ var Mobile = (function ($, G, U) { // IIFE
             Df.nav = Df.mobile.find('article').first().addClass('nav');
             // get width (and offset)
             Df.wide = Df.nav.parent().innerWidth() || 300;
-            Df.high = Df.nav.parent().parent().outerHeight() - 104;
+            Df.high = Df.nav.parent().parent().outerHeight() - 111;
             Df.left = (parseInt(Df.nav.parent().css('left'), 10) || 0);
 
             if (U.debug()) {
