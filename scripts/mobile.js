@@ -27,8 +27,8 @@ var Mobile = (function ($, G, U) { // IIFE
             Df.mobile = $(Df.mobile).show();
             if (Main.mobile()) {
                 Df.mobile.css({
-                    height: jsView.port.layoutHeight(),
-                    width: jsView.port.layoutWidth(),
+                    height: jsView.port.visualHeight(), // .layoutHeight(),
+                    width: jsView.port.visualWidth(), // .layoutWidth(),
                 });
             }
             Df.nav = Df.mobile.find('article').first().addClass('nav');
