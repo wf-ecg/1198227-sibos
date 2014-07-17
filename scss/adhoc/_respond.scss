@@ -1,29 +1,30 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* ADHOC / Respond */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-#Page {
-    @media (max-width: 1600px) {
-        zoom: 1;
+html.desktop {
+    @media (min-width: 1200px) {
+        zoom: 1.2;
+    }
+    @media (max-width: 1199px) {
+        zoom: 1.1;
     }
     @media (max-width: 1000px) {
-        zoom: 0.9;
+        zoom: 1.0;
     }
     @media (max-width: 900px) {
-        zoom: 0.8;
+        zoom: 0.9;
     }
     @media (max-width: 800px) {
-        zoom: 0.7;
-    }
-    @media (max-width: 750px) {
-        zoom: 0.6;
-    }
-    @media (max-width: 600px) {
-        zoom: 1;
-    }
-    @media (max-width: 475px) {
         zoom: 0.8;
     }
-
+    @media (max-width: 700px) {
+        zoom: 0.7;
+    }
+    @media (max-width: 600px) {
+        zoom: 0.6;
+    }
+}
+html {
     .cache {
         display: none;
     }

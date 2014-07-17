@@ -10,4 +10,7 @@
 .loading {
     display: none;
 }
+.clearfix {
+    @include clearfix();
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
