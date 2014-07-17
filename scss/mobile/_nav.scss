@@ -2,17 +2,16 @@
 /* MOBILE / Nav */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Mobile {
+    .nav {
+        height: 100%;
+        width: 100%;
+    }
     nav {
         @include whiteShadow;
         @include font-thick();
-
-        border-top: 2px solid white;
-        border-bottom: 1px solid white;
-        clear: both;
         font-size: 140%;
         font-weight: 300;
         line-height: 1;
-        width: 100%;
 
         a {
             @include lightGrad();
@@ -32,7 +31,6 @@
             &.hover, &:hover {
                 @include grayGrad();
                 @include thinShadow;
-
                 color: white;
             }
 

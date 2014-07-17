@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Globs, Util, jQuery,
-        Extract, Main, */
+        Extract, Main, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Mobile = (function ($, G, U) { // IIFE
     'use strict';
@@ -25,18 +25,19 @@ var Mobile = (function ($, G, U) { // IIFE
             Df.bezel = $(Df.bezel);
             Df.page = $(Df.page);
             Df.mobile = $(Df.mobile).show();
-            if (Main.mobile()) {
-                Df.mobile.css({
-                    height: jsView.port.visualHeight(), // .layoutHeight(),
-                    width: jsView.port.visualWidth(), // .layoutWidth(),
-                });
-            }
             Df.nav = Df.mobile.find('article').first().addClass('nav');
-            // get width (and offset)
-            Df.wide = Df.nav.parent().innerWidth() || 300;
-            Df.high = Df.nav.parent().parent().outerHeight() - 99;
-            Df.left = (parseInt(Df.nav.parent().css('left'), 10) || 0);
 
+            if (Main.mobile()) {
+                self.sizer();
+
+                $(W).bind('resize orientationchange', _.debounce(function () {
+                    if (jsView.port.orientation() === 'landscape') {
+                        W.alert('The view in landscape is sub-optimal.');
+                    }
+                    self.sizer();
+                    W.location.reload();
+                }, 333));
+            }
             if (U.debug()) {
                 C.debug(name, 'Df.inits\n', Df);
             }
@@ -81,6 +82,28 @@ var Mobile = (function ($, G, U) { // IIFE
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     // INTERNALS
+
+    function _sizer() {
+        Df.mobile.css({
+            height: jsView.port.visualHeight(), // .layoutHeight(),
+            width: jsView.port.visualWidth(), // .layoutWidth(),
+        });
+        // get width (and offset)
+        Df.wide = Df.nav.parent().innerWidth() || 300;
+        Df.high = Df.nav.parent().parent().outerHeight() - 99;
+        Df.left = (parseInt(Df.nav.parent().css('left'), 10) || 0);
+        Df.nav.parent().css({
+            width: Df.wide,
+            height: Df.high,
+        });
+        _.delay(function () {
+            var x, y;
+            x = $('#Banner');
+            y = x.find('img').first();
+            y = y.height() * 1.1;
+            x.height(y);
+        }, 33);
+    }
 
     function _revealPage(jq, yes) {
         if (!Df.atnav) {
@@ -138,10 +161,6 @@ var Mobile = (function ($, G, U) { // IIFE
     }
 
     function _binding() {
-        Df.nav.parent().css({
-            width: Df.wide,
-            height: Df.high,
-        });
         // SHARE
         Df.share = $(Df.share).hide();
         Df.mobile.find('header').append(Df.share);
@@ -174,6 +193,7 @@ var Mobile = (function ($, G, U) { // IIFE
             _revealPage(Df.current, false);
         },
         slider: _slider,
+        sizer: _sizer,
     });
 
     return self;
