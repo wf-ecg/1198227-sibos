@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Globs, Util, jQuery,
-        Banner, Extract, Mobile, Popup, Scroll, ShareStrings:true, _mobile, ROOT, */
+        Banner, Extract, Mobile, Popup, Scroll, ShareStrings:true, jsMobi, ROOT, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Main = (function ($, G, U) { // IIFE
     'use strict';
@@ -80,7 +80,7 @@ var Main = (function ($, G, U) { // IIFE
     }
 
     function _device() {
-        if (!_mobile()) {
+        if (!jsMobi.any()) {
             $('html').addClass('desktop');
         } else {
             $('html').addClass('mobile');
@@ -132,7 +132,7 @@ var Main = (function ($, G, U) { // IIFE
         },
         init: _init,
         page: _whatPage,
-        mobile: _mobile,
+        mobile: jsMobi.any,
         noext: _noExt,
         cb: function () {
             C.debug.apply(C, [name, 'callback'].concat(arguments));

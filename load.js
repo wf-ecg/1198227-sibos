@@ -52,11 +52,10 @@ Globs = new Global('Globals');
             /* */
             G.loc + 'js-mobi.js',
             G.loc + 'js-view.js',
-            G.loc + 'detect.js',
             G.loc + 'Page.js',
             ],
         complete: function () {
-            _force();
+            jsMobi._force();
             Data = new G.constructor('Data', '(catchall data fixture)');
         },
     };
