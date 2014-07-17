@@ -50,11 +50,12 @@ Globs = new Global('Globals');
             G.lib + 'video-js/4.2.1/video-js.css',
             G.lib + 'video-js/4.2.1/video.dev.js',
             /* */
+            G.loc + 'js-mobi.js',
             G.loc + 'js-view.js',
-            G.loc + 'detect.js',
             G.loc + 'Page.js',
             ],
         complete: function () {
+            jsMobi._force();
             Data = new G.constructor('Data', '(catchall data fixture)');
         },
     };
