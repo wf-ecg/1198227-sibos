@@ -55,6 +55,7 @@ Globs = new Global('Globals');
             G.loc + 'Page.js',
             ],
         complete: function () {
+            _force();
             Data = new G.constructor('Data', '(catchall data fixture)');
         },
     };
