@@ -8,3 +8,9 @@
 @import "_respond";
 @import "_text";
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+html.dev body > div {
+    outline: limegreen;
+    outline-offset: -1px;
+    outline-style: solid;
+    outline-width: 1px;
+}
