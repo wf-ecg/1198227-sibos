@@ -39,6 +39,9 @@ body {
         padding: 0;
         line-height: 22px;
 
+        .msie & {
+            font-weight: 500;
+        }
         span {
             background-image: url(../images/misc/ribron.png);
             background-repeat: no-repeat;

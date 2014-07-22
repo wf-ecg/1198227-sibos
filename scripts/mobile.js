@@ -102,7 +102,7 @@ var Mobile = (function ($, G, U) { // IIFE
             y = x.find('img').first();
             y = y.height() * 1.1;
             x.height(y);
-        }, 33);
+        }, 333);
     }
 
     function _revealPage(jq, yes) {

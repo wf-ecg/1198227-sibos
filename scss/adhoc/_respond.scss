@@ -2,26 +2,24 @@
 /* ADHOC / Respond */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 html.desktop {
-    @media (min-width: 1200px) {
-        zoom: 1.2;
-    }
-    @media (max-width: 1199px) {
-        zoom: 1.1;
-    }
-    @media (max-width: 1000px) {
-        zoom: 1.0;
-    }
-    @media (max-width: 900px) {
+    zoom: 1.0;
+    @media (max-width: 950px) {
         zoom: 0.9;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
         zoom: 0.8;
     }
-    @media (max-width: 700px) {
+    @media (max-width: 750px) {
         zoom: 0.7;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
         zoom: 0.6;
+    }
+    @media (min-width: 1300px) {
+        zoom: 1.1;
+    }
+    @media (min-width: 1500px) {
+        zoom: 1.2;
     }
 }
 html {

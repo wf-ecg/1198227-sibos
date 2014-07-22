@@ -3,6 +3,5 @@
 *.pdf
 *.psd
 *.webm
-images/sequence
 media*/*/*
 styles

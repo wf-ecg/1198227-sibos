@@ -73,12 +73,6 @@ var Main = (function ($, G, U) { // IIFE
         return x.slice(0, 1).toString();
     }
 
-    function _dev() {
-        if (ROOT.conf.nom === 'localhost' && W.debug > 0) {
-            $('html').addClass('dev');
-        }
-    }
-
     function _device() {
         if (!jsMobi.any()) {
             $('html').addClass('desktop');
@@ -93,7 +87,6 @@ var Main = (function ($, G, U) { // IIFE
     }
 
     function _binder() {
-//        _dev();
         _device();
         _activeNav();
     }
