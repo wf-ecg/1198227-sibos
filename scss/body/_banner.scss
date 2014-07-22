@@ -1,18 +1,23 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* FEAT / Banner */
+/* BODY / Banner */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Body #Banner {
     display: none;
+    height: 255px;
     position: relative;
-    width: 898px; height: 295px;
+    width: 898px;
 
     img.fade {
-        left: 0; top: 0;
+        left: 0;
+        top: 0;
     }
     div.reins {
         @include transition( all 0.5s ease-out 0 );
         background-size: 111% 100%;
         background-position: 50%;
+    }
+    .reins, .blot {
+        display: none;
     }
     .reins {
         float: left;
