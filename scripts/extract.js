@@ -87,7 +87,7 @@ var Extract = (function ($, G, U) { // IIFE
             jq = Df.cache.clone().hide();
             Df.ports[url] = jq.appendTo(Df.port);
 
-            _get(url, '#Feature', function (page) {
+            _get(url, '#Body', function (page) {
                 _append(page);
                 _miniScrub(Df.ports[url]);
                 _homeBtn(jq);
