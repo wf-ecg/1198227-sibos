@@ -1,6 +1,21 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* ADHOC / Msie */
+/* ADHOC / Misc */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.hide {
+    display: none;
+}
+.button {
+    cursor: pointer;
+}
+.loading {
+    display: none;
+}
+.clearfix {
+    @include clearfix();
+}
+.strike {
+    text-decoration: line-through;
+}
 .msie {
     body {
         line-height: 150%;
@@ -23,4 +38,5 @@
         font-family: "archer-bold";
     }
 }
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

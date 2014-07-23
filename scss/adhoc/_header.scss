@@ -1,11 +1,11 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* PAGE / Header */
+/* ADHOC / Header */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Page {
     & > header {
-        height: 146px;
-        margin-bottom: 2px;
+        margin-bottom: 1px;
         padding: 28px;
+        padding-bottom: 0;
 
         .mast {
             height: 80px;
