@@ -53,6 +53,7 @@ Globs = new Global('Globals');
             G.loc + 'js-mobi.js',
             G.loc + 'js-view.js',
             G.loc + 'Page.js',
+            G.loc + '_util.js',
             ],
         complete: function () {
             jsMobi._force();
@@ -75,13 +76,12 @@ Globs = new Global('Globals');
     Load.main = {
         both: [
             G.src + 'metas.js',
-            G.src + '_util.js',
             G.src + 'banner.js',
             G.src + 'extract.js',
             G.src + 'mobile.js',
             G.src + 'scroll.js',
             G.src + 'popup.js',
-            G.src + 'main.js',
+            G.src + '_main.js',
             ],
         complete: function () {
             U = Util;
