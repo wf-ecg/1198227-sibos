@@ -1,11 +1,11 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, ROOT, Global, Util, jQuery,
-    Main, Modernizr, Popup, */
+    Glob:true, Main, Modernizr, Popup, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 'use strict';
-var Data, Globs, Load, Tests, ShareStrings, switchTo5x = true;
+var Data, Glob, Load, Tests, ShareStrings, switchTo5x = true;
 
-Globs = new Global('Globals');
+Glob = new Global('Glob');
 
 (function ($, G, M) {
     'use strict';
@@ -101,5 +101,5 @@ Globs = new Global('Globals');
     };
     M.load([Load.base, Load.font, Load.main, Load.test]);
 
-}(jQuery, Globs, Modernizr));
+}(jQuery, Glob, Modernizr));
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

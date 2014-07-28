@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals _, C, W, Globs, Util, jQuery,
+/*globals _, C, W, Glob, Util, jQuery,
         Main, videojs, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Popup = (function ($, G, U) { // IIFE
@@ -117,7 +117,7 @@ var Popup = (function ($, G, U) { // IIFE
     });
 
     return self;
-}(jQuery, Globs, Util));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 

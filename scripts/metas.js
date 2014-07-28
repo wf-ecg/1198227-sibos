@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals _, C, W, Globs, Util, jQuery,
+/*globals _, C, W, Glob, Util, jQuery,
         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
