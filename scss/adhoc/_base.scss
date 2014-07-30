@@ -15,14 +15,15 @@ body {
     background-attachment: fixed;
 
     a {
+        color: $link;
         text-decoration: underline;
 
         &.hover, &:hover {
             text-decoration: none;
         }
-    }
-    a {
-        color: $link;
+        img {
+            vertical-align: top;
+        }
     }
     button {
         cursor: pointer;
@@ -88,9 +89,8 @@ body {
     p, li {
         @include font-thick();
 
-        margin-bottom: 11px;
+        margin: 6px 0;
         max-width: 72em;
-        text-indent: 1px;
     }
     strong {
         font-weight: bold;

@@ -86,14 +86,31 @@ var Main = (function ($, G, U) { // IIFE
         $('a[href="./' + page + '"]').first().addClass('active');
     }
 
+    function startRotator() {
+        var div = $('p.rotator');
+        var all = div.find('a');
+        var next = -1;
+        var ln = all.length;
+        var time = 5555;
+        var fade = time / 5;
+        var loop;
+
+        // hide lock parent size
+        all.hide().first().show();
+        div.height(div.height());
+        all.css('position', 'absolute');
+
+        (loop = function () {
+            all.eq(next).fadeOut(fade).end() //
+            .eq(next = (next + 1) % ln).fadeIn(fade);
+            // repeat every 5 seconds
+            W.setTimeout(loop, time);
+        })();
+    }
+
     function _binder() {
         _device();
         _activeNav();
-    }
-
-    function _subinits() {
-        Banner.init(Df.bnrLinks);
-        Mobile.init();
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -106,16 +123,26 @@ var Main = (function ($, G, U) { // IIFE
 
         dfInit();
         Scroll.init();
+        Extract.init();
 
-        if (_whatPage() === 'mini.html'){
-            Extract.init(_subinits);
-        } else if (_whatPage() === 'home.html'  ) {
-            Banner.init(Df.bnrLinks);
+        if (_whatPage() === 'mini.html') {
+            Extract.nav($.Deferred()).done(function () {
+                Banner.init(Df.bnrLinks);
+                Mobile.init();
+                _binder();
+            });
         } else {
-            Banner.init();
+            Extract.head($.Deferred()).done(function () {
+                if (_whatPage() === 'home.html') {
+                    Banner.init(Df.bnrLinks);
+                    startRotator();
+                } else {
+                    Banner.init();
+                }
+                _binder();
+            });
         }
 
-        _binder();
         Popup.init();
     }
 
