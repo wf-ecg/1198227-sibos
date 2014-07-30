@@ -91,11 +91,6 @@ var Main = (function ($, G, U) { // IIFE
         _activeNav();
     }
 
-    function _subinits() {
-        Banner.init(Df.bnrLinks);
-        Mobile.init();
-    }
-
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init() {
@@ -106,16 +101,25 @@ var Main = (function ($, G, U) { // IIFE
 
         dfInit();
         Scroll.init();
+        Extract.init();
 
         if (_whatPage() === 'mini.html'){
-            Extract.init(_subinits);
-        } else if (_whatPage() === 'home.html'  ) {
-            Banner.init(Df.bnrLinks);
+            Extract.nav($.Deferred()).done(function () {
+                Banner.init(Df.bnrLinks);
+                Mobile.init();
+                _binder();
+            });
         } else {
-            Banner.init();
+            Extract.head($.Deferred()).done(function () {
+                if (_whatPage() === 'home.html') {
+                    Banner.init(Df.bnrLinks);
+                } else {
+                    Banner.init();
+                }
+                _binder();
+            });
         }
 
-        _binder();
         Popup.init();
     }
 

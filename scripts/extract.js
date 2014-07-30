@@ -13,15 +13,18 @@ var Extract = (function ($, G, U) { // IIFE
         holder: '<article>',
 
         home: 'h1 img.home',
-        mobileDiv: '#Mobile',
+        mobileEle: '#Mobile',
+        headerEle: '#Header',
         navurl: '_nav.html',
+        headurl: '_head.html',
         point: 'section.port',
         container: '#Body',
 
         extracts: {},
         sources: {},
         inits: function () {
-            this.mobileDiv = $(this.mobileDiv);
+            this.mobileEle = $(this.mobileEle);
+            this.headerEle = $(this.headerEle);
             // this.point  set later after mobile loads?
 
             if (U.debug()) {
@@ -60,19 +63,32 @@ var Extract = (function ($, G, U) { // IIFE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
-    function _loadNav(doing) { // get nav html
+    function _loadNav(defer) { // get nav html
         var url = Df.navurl;
 
-        Df.extracts[url] = Df.mobileDiv;
+        Df.extracts[url] = Df.mobileEle;
 
-        if (Df.mobileDiv.children().length) {
-            return doing.resolve();
+        if (Df.mobileEle.children().length) {
+            return defer.resolve();
         }
         return takeSource(url, function (page) {
             append(page, '#Mobile');
-            Df.point = Df.mobileDiv.find(Df.point).first();
+            Df.point = Df.mobileEle.find(Df.point).first();
             Df.home = $(Df.home).detach();
-        }).jqxhr.promise(doing);
+        }).jqxhr.promise(defer);
+    }
+
+    function _loadHead(defer) { // get nav html
+        var url = Df.headurl;
+
+        Df.extracts[url] = Df.headerEle;
+
+        if (Df.headerEle.children().length) {
+            return defer.resolve();
+        }
+        return takeSource(url, function (page) {
+            append(page, '#Header');
+        }).jqxhr.promise(defer);
     }
 
     function _extract(url, naving) { // get content html
@@ -106,7 +122,6 @@ var Extract = (function ($, G, U) { // IIFE
             return this.filter(sel).add(this.find(sel));
         };
 
-        _loadNav($.Deferred()).done(cb); // bespoke vers of extract
     }
 
     $.extend(self, {
@@ -115,6 +130,8 @@ var Extract = (function ($, G, U) { // IIFE
         },
         init: _init,
         page: _extract,
+        nav: _loadNav, // bespoke vers of extract
+        head: _loadHead, // bespoke vers of extract
     });
 
     return self;
