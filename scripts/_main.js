@@ -87,7 +87,7 @@ var Main = (function ($, G, U) { // IIFE
     }
 
     function startRotator() {
-        var div = $('p.rotator');
+        var div = $(this);
         var all = div.find('a');
         var next = -1;
         var ln = all.length;
@@ -111,6 +111,7 @@ var Main = (function ($, G, U) { // IIFE
     function _binder() {
         _device();
         _activeNav();
+        $('p.rotator').each(startRotator);
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -135,7 +136,6 @@ var Main = (function ($, G, U) { // IIFE
             Extract.head($.Deferred()).done(function () {
                 if (_whatPage() === 'home.html') {
                     Banner.init(Df.bnrLinks);
-                    startRotator();
                 } else {
                     Banner.init();
                 }

@@ -14,6 +14,11 @@
     -webkit-user-drag: none;
     //cursor: move;
 }
+@mixin gimme(){
+    @include user-select(initial);
+    -webkit-user-drag: initial;
+    cursor: move;
+}
 @mixin rex($prop, $rem){
     #{$prop}: $rem * $remx;
     //#{$prop}: $rem * 1rem;
@@ -51,7 +56,8 @@
 }
 @mixin bodyGrad(){
     background-color: $lighter;
-    @include vgrad( $light, $lighter, 44%, 88%);
+    @include vgrad( $light, $lighter, 6%, 66%);
+    @include background-image( linear-gradient(left, $light 0%, $lightest 25%, $lightest 75%, $light 100%) );
 }
 @mixin lightGrad(){
     background-color: $light;

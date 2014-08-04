@@ -6,8 +6,9 @@
 }
 #Page {
     background-color: #fff;
-    border: 1px solid #f8f8f8;
-    margin: 0 auto;
+    border: 1px solid $light;
+    box-shadow: 0 0 33px rgba(0,0,0,0.1);
+    margin: 6px auto;
     position: relative;
     width: 956px;
 }
