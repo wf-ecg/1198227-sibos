@@ -30,6 +30,8 @@ var Mobile = (function ($, G, U) { // IIFE
             if (Main.mobile()) {
                 self.sizer();
                 $('html').addClass(jsMobi.any()[0]);
+                // $('#scrollbox').on('touchstart', function(event){});
+                /// body --- no gradients?
 
                 $(W).bind('resize orientationchange', _.debounce(function () {
                     if (jsView.port.orientation() === 'landscape') {
