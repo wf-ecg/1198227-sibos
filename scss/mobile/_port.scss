@@ -41,16 +41,14 @@
         .external {
             margin-left: 2px;
         }
-        img {
-            margin-left: 0;
-            max-width: 100%;
+        h3 img, p img, img.fix {
+            float: right;
+            margin-left: 12px;
+            max-width: 66%;
         }
         h2 {
             font-weight: 600;
             margin-top: 12px;
-        }
-        h3 img {
-            float: right;
         }
         h3.chev {
             @include lightGrad();
