@@ -56,7 +56,9 @@ Glob = new Global('Glob');
             G.loc + 'fetch.js',
             ],
         complete: function () {
-            jsMobi._force();
+            if (jsView.device.width < 800) {
+                jsMobi._force();
+            }
             Data = new G.constructor('Data', '(catchall data fixture)');
         },
     };
