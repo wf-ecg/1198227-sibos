@@ -100,6 +100,9 @@ var Mobile = (function ($, G, U) { // IIFE
             var x, y;
             x = $('#Banner');
             y = x.find('img').first();
+            if (Df.high < 280) {
+                x.hide(); // ip4/ios6 only 257! (so hide banner)
+            }
             y = y.height() * 1.1;
             x.height(y);
         }, 333);
