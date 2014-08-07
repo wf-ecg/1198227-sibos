@@ -8,14 +8,27 @@
         position: absolute;
         z-index: -1;
 
+        .Android &, .android & {
+            box-shadow: inset 0 0 20px red;
+            overflow: auto;
+        }
         article {
             padding: $minim;
             overflow-x: hidden;
             overflow-y: scroll; /* has to be scroll, for momentum */
             -webkit-overflow-scrolling: touch;
 
+            .Android & {
+                box-shadow: inset 0 0 15px cyan;
+                overflow: auto;
+            }
             &:first-child {
                 overflow-y: hidden;
+
+                .android & {
+                    box-shadow: inset 0 0 10px yellow;
+                    overflow: auto;
+                }
             }
         }
         a.learn {

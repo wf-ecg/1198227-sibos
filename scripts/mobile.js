@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Extract, Main, jsView, */
+        Extract, Main, jsMobi, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Mobile = (function ($, G, U) { // IIFE
     'use strict';
@@ -29,6 +29,7 @@ var Mobile = (function ($, G, U) { // IIFE
 
             if (Main.mobile()) {
                 self.sizer();
+                $('html').addClass(jsMobi.any()[0]);
 
                 $(W).bind('resize orientationchange', _.debounce(function () {
                     if (jsView.port.orientation() === 'landscape') {
