@@ -95,8 +95,8 @@ Glob = new Global('Glob');
         yep: [G.src + 'tests.js'],
         nope: [
             'http://www.wellsfargomedia.com/lib/js/ecg-ga.js',
-            G.loc + 'buttons.js',
-            G.src + 'share.js',
+            G.loc + 'sharelib.js',
+            G.src + 'sharecfg.js',
             ],
     };
     M.load([Load.base, Load.font, Load.main, Load.test]);
