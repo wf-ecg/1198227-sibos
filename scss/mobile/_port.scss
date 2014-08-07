@@ -11,7 +11,8 @@
         article {
             padding: $minim;
             overflow-x: hidden;
-            overflow-y: scroll;
+            overflow-y: scroll; /* has to be scroll, for momentum */
+            -webkit-overflow-scrolling: touch;
 
             &:first-child {
                 overflow-y: hidden;
