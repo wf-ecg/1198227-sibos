@@ -52,8 +52,8 @@ Glob = new Global('Glob');
             /* */
             G.loc + 'js-mobi.js',
             G.loc + 'js-view.js',
-            G.loc + 'Page.js',
             G.loc + '_util.js',
+            G.loc + 'fetch.js',
             ],
         complete: function () {
             jsMobi._force();
