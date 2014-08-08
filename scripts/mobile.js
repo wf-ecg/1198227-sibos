@@ -51,11 +51,12 @@ var Mobile = (function ($, G, U) { // IIFE
     // HELPERS (defaults dependancy only)
 
     function isInternal(str) {
-        var ts1, ts2, ts3;
+        var ts1, ts2, ts3, ts4;
         ts1 = str.match(W.location.host);
         ts2 = str.match('/pages/');
         ts3 = str.match('.html');
-        return !!(ts1 && ts2 && ts3);
+        ts4 = !str.match(/#./); // allow anchors to work
+        return (ts1 && ts2 && ts3 && ts4);
     }
 
     function share(evt) {
@@ -158,7 +159,6 @@ var Mobile = (function ($, G, U) { // IIFE
             return;
         }
 
-        evt.preventDefault();
         str = Main.page(str);
         if (U.debug()) {
             C.debug(name, '_slider', str);

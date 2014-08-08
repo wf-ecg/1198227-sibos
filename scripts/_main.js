@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Banner, Extract, Mobile, Popup, Scroll, ShareStrings:true, jsMobi, ROOT, */
+        Banner, Extract, Mobile, Popup, Scroll, ShareStrings:true, jsMobi, jsView, ROOT, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Main = (function ($, G, U) { // IIFE
     'use strict';
@@ -9,7 +9,7 @@ var Main = (function ($, G, U) { // IIFE
         Df;
 
     Df = { // DEFAULTS
-        inits: function (cb) {
+        inits: function () {
             if (jsView.device.width < 800) {
                 jsMobi.insist('ask');
             }

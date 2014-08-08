@@ -1,5 +1,5 @@
 /*jslint es5:true, white:false */
-/*globals $, ShareStrings, stLight, stWidget, window */
+/*globals $, ShareStrings, stLight:true, stWidget, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 function startSharing() {
