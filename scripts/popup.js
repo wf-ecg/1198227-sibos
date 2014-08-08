@@ -88,7 +88,7 @@ var Popup = (function ($, G, U) { // IIFE
 
     function _binding() {
         try {
-            if (!Main.mobile()) {
+            if (!Main.mobile) {
                 $('a.popup.pic').each(_pic);
                 $('a.popup.vid').each(_vid);
             }

@@ -4,7 +4,7 @@
 var W = window,
 C = W.console,
 D = W.document;
-W.debug = Number(new Date('2014/07/29') > new Date());
+W.debug = Number(new Date('2014/08/29') > new Date());
 W.ROOT = ({
     base: 0,
     // adjust built-in page depth? (e.g. '-1' == '..')

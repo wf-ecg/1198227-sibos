@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Banner, Extract, Mobile, Popup, Scroll, ShareStrings:true, jsMobi, ROOT, */
+        Banner, Extract, Mobile, Popup, Scroll, ShareStrings:true, jsMobi, jsView, ROOT, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Main = (function ($, G, U) { // IIFE
     'use strict';
@@ -9,30 +9,19 @@ var Main = (function ($, G, U) { // IIFE
         Df;
 
     Df = { // DEFAULTS
-        inits: function (cb) {},
-        bnrLinks: {
-            bnr01: '#',
-            bnr02: '#',
-            bnr03: '#',
-            bnr04: '#',
-            bnr05: '#',
-            bnr06: '#',
-            bnr07: '#',
-            bnr08: '#',
-            bnr09: '#',
-            bnr10: '#',
-            bnr11: '#',
-            bnr12: '#',
-            bnr13: '#',
-            bnr14: '#',
-            bnr15: '#',
+        inits: function () {
+            if (jsView.device.width < 800) {
+                jsMobi.insist('ask');
+            } else {
+                jsMobi.insist();
+            }
         },
     };
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function dfInit() {
-        var raw, pageHash;
+        var raw, pageHash, cfArr;
 
         raw = W.location.pathname.split('/').pop().match(/\w+/g);
         pageHash = {
@@ -42,24 +31,24 @@ var Main = (function ($, G, U) { // IIFE
             explore:    ["Explore Boston",      'See what Boston has to offer at #Sibos 2014'],
             giving:     ["Charitable Giving",   'Learn more about the #WellsFargo charity programs at #Sibos'],
             home:       ["Home",                'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
+            mini:       ["Sibos",               'Check out the #WellsFargo Global Financial Institutions Sibos microsite'],
             speakers:   ["Sibos Speakers",      'Learn about the #WellsFargo Global Financial Institutions publications'],
             test:       ["x", 'x'],
         };
         try {
+            cfArr = pageHash[raw[0]] || pageHash.mini;
             ShareStrings = {
-                url: 'http://wellsfargomedia.com/sibos/pages/' + raw.join('.'),
-                tab: 'Wells Fargo at Sibos 2014 – ' + pageHash[raw[0]][0],
-                sum: pageHash[raw[0]][1],
+                url: 'http://wellsfargomedia.com/sibos/', /// show home only
                 img: 'http://wellsfargomedia.com/sibos/images/header/wf.png',
+                tab: 'Wells Fargo at Sibos 2014 – ' + cfArr[0],
+                sum: cfArr[1],
             };
-
-            $('#head0').text(ShareStrings.tab);
             $('#head1, #head3').attr('content', ShareStrings.tab);
             $('#head2, #head4').attr('content', ShareStrings.sum);
             $('#head5').attr('content', ShareStrings.url);
-            //    $('#head6').attr('content', ShareStrings.img);
+            $('#head0').text(ShareStrings.tab);
         } catch (e) {
-            return e;
+            C.error(e);
         }
     }
 
@@ -121,6 +110,7 @@ var Main = (function ($, G, U) { // IIFE
             return null;
         }
         C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
+        Df.inits();
 
         dfInit();
         Scroll.init();
@@ -128,17 +118,13 @@ var Main = (function ($, G, U) { // IIFE
 
         if (_whatPage() === 'mini.html') {
             Extract.nav($.Deferred()).done(function () {
-                Banner.init(Df.bnrLinks);
+                Banner.init();
                 Mobile.init();
                 _binder();
             });
         } else {
             Extract.head($.Deferred()).done(function () {
-                if (_whatPage() === 'home.html') {
-                    Banner.init(Df.bnrLinks);
-                } else {
-                    Banner.init();
-                }
+                Banner.init();
                 _binder();
             });
         }
@@ -152,7 +138,7 @@ var Main = (function ($, G, U) { // IIFE
         },
         init: _init,
         page: _whatPage,
-        mobile: jsMobi.any,
+        mobile: !!jsMobi.any(),
         noext: _noExt,
         cb: function () {
             C.debug.apply(C, [name, 'callback'].concat(arguments));
