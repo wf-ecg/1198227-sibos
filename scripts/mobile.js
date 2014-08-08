@@ -27,7 +27,7 @@ var Mobile = (function ($, G, U) { // IIFE
             Df.mobile = $(Df.mobile).show();
             Df.nav = Df.mobile.find('article').first().addClass('nav');
 
-            if (Main.mobile()) {
+            if (Main.mobile) {
                 self.sizer();
                 $('html').addClass(jsMobi.any()[0]);
                 // $('#scrollbox').on('touchstart', function(event){});
@@ -138,7 +138,7 @@ var Mobile = (function ($, G, U) { // IIFE
     }
 
     function _embezelr() {
-        if (!Main.mobile()) {
+        if (!Main.mobile) {
             Df.mobile.wrap(Df.bezel);
             Df.page.show();
         } else {

@@ -9,7 +9,11 @@ var Main = (function ($, G, U) { // IIFE
         Df;
 
     Df = { // DEFAULTS
-        inits: function (cb) {},
+        inits: function (cb) {
+            if (jsView.device.width < 800) {
+                jsMobi.insist('ask');
+            }
+        },
         bnrLinks: {
             bnr01: '#',
             bnr02: '#',
@@ -121,6 +125,7 @@ var Main = (function ($, G, U) { // IIFE
             return null;
         }
         C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
+        Df.inits();
 
         dfInit();
         Scroll.init();
@@ -152,7 +157,7 @@ var Main = (function ($, G, U) { // IIFE
         },
         init: _init,
         page: _whatPage,
-        mobile: jsMobi.any,
+        mobile: !!jsMobi.any(),
         noext: _noExt,
         cb: function () {
             C.debug.apply(C, [name, 'callback'].concat(arguments));
