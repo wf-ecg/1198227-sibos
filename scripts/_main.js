@@ -16,23 +16,6 @@ var Main = (function ($, G, U) { // IIFE
                 jsMobi.insist();
             }
         },
-        bnrLinks: {
-            bnr01: '#',
-            bnr02: '#',
-            bnr03: '#',
-            bnr04: '#',
-            bnr05: '#',
-            bnr06: '#',
-            bnr07: '#',
-            bnr08: '#',
-            bnr09: '#',
-            bnr10: '#',
-            bnr11: '#',
-            bnr12: '#',
-            bnr13: '#',
-            bnr14: '#',
-            bnr15: '#',
-        },
     };
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -135,17 +118,13 @@ var Main = (function ($, G, U) { // IIFE
 
         if (_whatPage() === 'mini.html') {
             Extract.nav($.Deferred()).done(function () {
-                Banner.init(Df.bnrLinks);
+                Banner.init();
                 Mobile.init();
                 _binder();
             });
         } else {
             Extract.head($.Deferred()).done(function () {
-                if (_whatPage() === 'home.html') {
-                    Banner.init(Df.bnrLinks);
-                } else {
-                    Banner.init();
-                }
+                Banner.init();
                 _binder();
             });
         }
