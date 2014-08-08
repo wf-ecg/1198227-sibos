@@ -52,11 +52,13 @@ Glob = new Global('Glob');
             /* */
             G.loc + 'js-mobi.js',
             G.loc + 'js-view.js',
-            G.loc + 'Page.js',
             G.loc + '_util.js',
+            G.loc + 'fetch.js',
             ],
         complete: function () {
-            jsMobi._force();
+            if (jsView.device.width < 800) {
+                jsMobi._force();
+            }
             Data = new G.constructor('Data', '(catchall data fixture)');
         },
     };
@@ -95,8 +97,8 @@ Glob = new Global('Glob');
         yep: [G.src + 'tests.js'],
         nope: [
             'http://www.wellsfargomedia.com/lib/js/ecg-ga.js',
-            G.loc + 'buttons.js',
-            G.src + 'share.js',
+            G.loc + 'sharelib.js',
+            G.src + 'sharecfg.js',
             ],
     };
     M.load([Load.base, Load.font, Load.main, Load.test]);

@@ -50,7 +50,7 @@ var Extract = (function ($, G, U) { // IIFE
         if (U.debug()) {
             C.debug(name, 'takeSource', url);
         }
-        return (Df.sources[url] = new Page(url, cb || callback));
+        return (Df.sources[url] = new G.Fetch(url, cb || callback));
     }
 
     function miniScrub(jq) {

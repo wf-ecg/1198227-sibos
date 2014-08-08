@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Extract, Main, jsView, */
+        Extract, Main, jsMobi, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Mobile = (function ($, G, U) { // IIFE
     'use strict';
@@ -29,6 +29,9 @@ var Mobile = (function ($, G, U) { // IIFE
 
             if (Main.mobile()) {
                 self.sizer();
+                $('html').addClass(jsMobi.any()[0]);
+                // $('#scrollbox').on('touchstart', function(event){});
+                /// body --- no gradients?
 
                 $(W).bind('resize orientationchange', _.debounce(function () {
                     if (jsView.port.orientation() === 'landscape') {
@@ -100,6 +103,9 @@ var Mobile = (function ($, G, U) { // IIFE
             var x, y;
             x = $('#Banner');
             y = x.find('img').first();
+            if (Df.high < 280) {
+                x.hide(); // ip4/ios6 only 257! (so hide banner)
+            }
             y = y.height() * 1.1;
             x.height(y);
         }, 333);
