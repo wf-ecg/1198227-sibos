@@ -4,7 +4,7 @@
 #Mobile {
     display: none;
 }
-#Page {
+#Desktop {
     background-color: #fff;
     border: 1px solid $light;
     box-shadow: 0 0 33px rgba(0,0,0,0.1);
@@ -12,7 +12,7 @@
     position: relative;
     width: 956px;
 }
-#Body {
+#Desktop .content {
     margin-left: 28px;
     overflow: visible;
     position: relative;
@@ -26,7 +26,6 @@
         vertical-align: top;
     }
 }
-
 body {
     html.desktop & {
         overflow-y: scroll;

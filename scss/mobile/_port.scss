@@ -1,72 +1,70 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* MOBILE / Port */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-#Mobile {
-    section.port {
-        box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
+#Mobile section.port {
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 
-        .android & {
-            box-shadow: inset 0 0 20px red;
+    .android & {
+        box-shadow: inset 0 0 20px red;
+        overflow: scroll;
+    }
+    article {
+        padding: $minim;
+        overflow-x: hidden;
+        overflow-y: scroll; /* has to be scroll, for momentum */
+        -webkit-overflow-scrolling: touch;
+
+        .Android & {
+            box-shadow: inset 0 0 25px green;
             overflow: scroll;
         }
-        article {
-            padding: $minim;
-            overflow-x: hidden;
-            overflow-y: scroll; /* has to be scroll, for momentum */
-            -webkit-overflow-scrolling: touch;
+        &:first-child {
+            overflow-y: hidden;
 
             .Android & {
-                box-shadow: inset 0 0 25px green;
+                box-shadow: inset 0 0 10px yellow;
                 overflow: scroll;
             }
-            &:first-child {
-                overflow-y: hidden;
+        }
+    }
+    a.learn {
+        @include font-thick();
 
-                .Android & {
-                    box-shadow: inset 0 0 10px yellow;
-                    overflow: scroll;
-                }
-            }
-        }
-        a.learn {
-            @include font-thick();
-
-            float: right;
-            font-size: 12px;
-            margin: 5px 9px;
-        }
-        .external {
-            margin-left: 2px;
-        }
-        h3 img, p img:not(.external), img.fix {
-            float: right;
-            margin-left: 12px;
-            max-width: 66%;
-        }
-        h2 {
-            font-weight: 600;
-            margin-top: 12px;
-        }
-        h3.chev {
-            @include lightGrad();
-        }
-        .shrink {
-            font-size: 90%;
-            line-height: 110%;
-            padding-left: 15px;
-            text-indent: -15px;
-        }
-        .elim {
-            display: none;
-        }
-        #Banner {
-            img {
-                margin-left: -12px;
-                max-width: 104%;
-            }
+        float: right;
+        font-size: 12px;
+        margin: 5px 9px;
+    }
+    .external {
+        margin-left: 2px;
+    }
+    h3 img, p img:not(.external), img.fix {
+        float: right;
+        margin-left: 12px;
+        max-width: 66%;
+    }
+    h2 {
+        font-weight: 600;
+        margin-top: 12px;
+    }
+    h3.chev {
+        @include lightGrad();
+    }
+    .shrink {
+        font-size: 90%;
+        line-height: 110%;
+        padding-left: 15px;
+        text-indent: -15px;
+    }
+    .elim {
+        display: none;
+    }
+    .banner {
+        img {
+            margin-left: -12px;
+            max-width: 104%;
         }
     }
 }

@@ -19,7 +19,7 @@ W.ROOT = ({
         },
         'localhost:8000': {
             nom: 'localhost',
-            sub: '/wf-ecg/1198227-sibos',
+            sub: '/wf-ecg/sibos/1198227-sibos',
         },
     },
     dir: null,

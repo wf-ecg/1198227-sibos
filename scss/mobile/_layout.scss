@@ -1,7 +1,17 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* MOBILE / Hdr-Ftr (header and footer) */
+/* MOBILE / Layout (header/footer Shares) */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 #Mobile {
+    background-color: white;
+    height: $dpH;
+    position: relative;
+    width: $dpW;
+    z-index: -1;
+
+    > article {
+        overflow: auto;
+    }
+
     header {
         box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         overflow: hidden;
@@ -47,6 +57,20 @@
 
         p {
             margin: 0;
+        }
+    }
+
+    #Share {
+        height: 80px;
+        margin-top: -80px;
+        position: relative;
+        width: 100%;
+
+        > span {
+            background-color: white;
+            display: table-cell;
+            text-align: center;
+            vertical-align: bottom;
         }
     }
 }

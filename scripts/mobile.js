@@ -17,7 +17,7 @@ var Mobile = (function ($, G, U) { // IIFE
         left: 111,
         mobile: '#Mobile',
         nav: null,
-        page: '#Page',
+        page: '#Desktop',
         share: '#Share',
         time: 333,
         wide: 999,
@@ -102,7 +102,7 @@ var Mobile = (function ($, G, U) { // IIFE
         });
         _.delay(function () {
             var x, y;
-            x = $('#Banner');
+            x = $('.banner');
             y = x.find('img').first();
             if (Df.high < 280) {
                 x.hide(); // ip4/ios6 only 257! (so hide banner)

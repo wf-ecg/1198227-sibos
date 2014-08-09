@@ -1,5 +1,5 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
-/* ADHOC / Respond */
+/* DESKTOP / Respond */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 html.desktop {
     zoom: 1.0;
@@ -34,6 +34,14 @@ html {
     }
     .right {
         float: right;
+    }
+}
+#Desktop .content {
+    html.dev & .mini {
+        background-color: $hilite !important;
+    }
+    html.dev & .elim {
+        background-color: $dilite !important;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
