@@ -1,6 +1,6 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Main, Mobile, Page, */
+        Main, Mobile, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Extract = (function ($, G, U) { // IIFE
     'use strict';
