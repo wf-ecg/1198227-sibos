@@ -36,4 +36,12 @@ html {
         float: right;
     }
 }
+#Desktop .content {
+    html.dev & .mini {
+        background-color: $hilite !important;
+    }
+    html.dev & .elim {
+        background-color: $dilite !important;
+    }
+}
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

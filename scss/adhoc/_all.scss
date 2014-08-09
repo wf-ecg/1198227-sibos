@@ -1,15 +1,9 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* ADHOC */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-$bzW: 600px; $dpW: 320px;
-$bzH: 900px; $dpH: 548px;
-
-$bzL: ($bzW - $dpW) / 2;
-$bzT: ($bzH - $dpH) / 2;
-
 @import "_base";
 @import "_dev";
 @import "_layout";
-@import "_popup";
 @import "_misc";
+@import "_popup";
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
