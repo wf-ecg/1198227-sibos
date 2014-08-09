@@ -17,7 +17,7 @@ var Mobile = (function ($, G, U) { // IIFE
         left: 111,
         mobile: '#Mobile',
         nav: null,
-        page: '#Page',
+        page: '#Desktop',
         share: '#Share',
         time: 333,
         wide: 999,
