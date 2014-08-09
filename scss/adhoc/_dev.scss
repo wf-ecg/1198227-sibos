@@ -1,0 +1,33 @@
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+/* ADHOC/Dev */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+html.dev {
+    body > div {
+        outline: limegreen;
+        outline-offset: -1px;
+        outline-style: solid;
+        outline-width: 1px;
+    }
+}
+#Body {
+    html.dev & .mini {
+        background-color: $hilite !important;
+    }
+    html.dev & .elim {
+        background-color: $dilite !important;
+    }
+}
+.bezel {
+    background-image: url("../images/mobile/bezel.png");
+    height: $bzH;
+    margin: auto;
+    padding: $bzT $bzL;
+    position: relative;
+    width: $bzW;
+
+    body:hover & {
+        z-index: 1;
+    }
+}
+
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //

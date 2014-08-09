@@ -1,26 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* MOBILE / Misc */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-.bezel {
-    background-image: url("../images/mobile/bezel.png");
-    height: $bzH;
-    margin: auto;
-    padding: $bzT $bzL;
-    position: relative;
-    width: $bzW;
-
-    body:hover & {
-        z-index: 1;
-    }
-}
-#Body {
-    html.dev & .mini {
-        background-color: $hilite !important;
-    }
-    html.dev & .elim {
-        background-color: $dilite !important;
-    }
-}
 #Mobile {
     background-color: white;
     height: $dpH;
