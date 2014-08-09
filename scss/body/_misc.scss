@@ -54,5 +54,16 @@
         float: right;
         margin-left: 10px;
     }
+    .banner {
+        display: none;
+        height: 255px;
+        position: relative;
+        width: 898px;
+
+        img.fade {
+            left: 0;
+            top: 0;
+        }
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -61,7 +61,7 @@ var Banner = (function ($, G, U) { // IIFE
     }
 
     function _binding() {
-        $('#Banner').fadeOut(1).fadeIn(999);
+        $('.banner').fadeOut(1).fadeIn(999);
     }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
