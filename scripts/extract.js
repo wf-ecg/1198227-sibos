@@ -14,7 +14,7 @@ var Extract = (function ($, G, U) { // IIFE
 
         home: 'h1 img.home',
         mobileEle: '#Mobile',
-        headerEle: '#Header',
+        headerEle: 'header',
         navurl: '_nav.html',
         headurl: '_head.html',
         point: 'section.port',
@@ -87,7 +87,7 @@ var Extract = (function ($, G, U) { // IIFE
             return defer.resolve();
         }
         return takeSource(url, function (page) {
-            append(page, '#Header');
+            append(page, 'header');
         }).jqxhr.promise(defer);
     }
 
