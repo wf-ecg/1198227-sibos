@@ -18,7 +18,7 @@ var Extract = (function ($, G, U) { // IIFE
         navurl: '_nav.html',
         headurl: '_head.html',
         point: 'section.port',
-        container: '#Body',
+        container: '.content',
 
         extracts: {},
         sources: {},
