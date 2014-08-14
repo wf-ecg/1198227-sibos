@@ -8,7 +8,6 @@
     z-index: -1;
 
     .android & {
-        box-shadow: inset 0 0 20px red;
         overflow: scroll;
     }
     article {
@@ -18,14 +17,12 @@
         -webkit-overflow-scrolling: touch;
 
         .Android & {
-            box-shadow: inset 0 0 25px purple;
             overflow: scroll;
         }
         &:first-child {
             overflow-y: hidden;
 
             .Android & {
-                box-shadow: inset 0 0 10px yellow;
                 overflow: scroll;
             }
         }
