@@ -1,16 +1,5 @@
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
 <script>location.href.match(/\.com.*(\/[^\.\/]+)+$/)&&(location.href+='/')</script>
-<script src="../lib/detect.js"></script>
-<script>
-    var str = 'Looks like you’re using a mobile browser. Would you like to visit the mobile version of this site?';
-
-    if (!_mobile()) {
-        W.location = 'home.html';
-    } else {
-        if (W.confirm(str)){
-            W.location = 'mini.html'
-        } else {
-            W.location = 'home.html';
-        }
-    }
-</script>
+<script src="../lib/js-mobi.js"></script>
+<script>jsMobi.autoPick();</script>

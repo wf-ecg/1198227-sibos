@@ -1,12 +1,11 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Banner;
-
-(function (W) {
+var Banner = (function ($, G, U) { // IIFE
+    'use strict';
     var name = 'Banner',
-        self = new Global(name, '(fade and loop)'),
-        C = W.console,
+        self = new G.constructor(name, '(fade and loop)'),
         Df;
 
     Df = { // DEFAULTS
@@ -18,27 +17,25 @@ var Banner;
             this.all.css({
                 position: 'absolute',
             });
-        }
+        },
     };
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
 
-    function _reinImage() {
-        var img, cls, div;
+    function binder(obj) {
+        $.each(obj, function (i, e) {
+            var anc;
 
-        img = $('img.reins');
-        cls = img.attr('class');
-        div = img.wrap('<div>').parent();
-        div.addClass(cls);
-
-        img.removeClass(cls).remove();
-        div.css({
-            backgroundImage: 'url(' + img.attr('src') + ')',
+            if (e !== '#') {
+                anc = $('<a>').attr('href', e);
+                $('.' + i).wrap(anc);
+            }
         });
-        W.setTimeout(function () {
-            div.css('backgroundSize', '100% 100%');
-        }, 1);
-        return;
     }
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // INTERNALS
 
     function descend() {
         Df.now--;
@@ -47,7 +44,9 @@ var Banner;
             Df.now = Df.total - 1;
             Df.all.fadeIn(0);
         }
-        W.debug > 1 && C.debug(Df.now);
+        if (U.debug(2)) {
+            C.debug(Df.now);
+        }
     }
 
     function _runfade() {
@@ -57,28 +56,13 @@ var Banner;
         .fadeOut(Df.time, function () {
             W.setTimeout(function () {
                 _runfade(); // recurses
-            }, Df.time * 9);
+            }, Df.time * 3);
         });
     }
 
-    function _blotto() {
-        var me = $('.reins.small'),
-            mq = $('<div>').addClass('blot small');
-        me.after(mq);
-
-        var me1 = $('.reins.large'),
-            mq1 = $('<div>').addClass('blot large');
-        me1.after(mq1);
-
+    function _binding() {
+        $('.banner').fadeOut(1).fadeIn(999);
     }
-
-    function _binder(obj) {
-        $.each(obj, function (i, e) {
-            var anc = $('<a>').attr('href', e);
-            $('.' + i).wrap(anc);
-        });
-    }
-
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init(obj) {
@@ -86,35 +70,27 @@ var Banner;
             return null;
         }
         Df.inits();
-        _blotto();
         _runfade();
 
         if (obj) {
-            _binder(obj);
+            binder(obj);
         }
-
-        $('#Banner').fadeOut(1).fadeIn(999);
-//        $('.reins').on('click', function () {
-//            W.isIE || _reinImage();
-//        });
+        _binding();
     }
 
-    W[name] = $.extend(true, self, {
+    $.extend(self, {
         _: function () {
             return Df;
         },
         init: _init,
-        wrap: _reinImage,
     });
 
     return self;
-
-}(window));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /*
-
 
 
 

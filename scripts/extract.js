@@ -1,124 +1,141 @@
 /*jslint es5:true, white:false */
-/*globals $, Global, Main, Mobile, Page, window */
+/*globals _, C, W, Glob, Util, jQuery,
+        Main, Mobile, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Extract;
-
-(function (W) {
+var Extract = (function ($, G, U) { // IIFE
+    'use strict';
     var name = 'Extract',
-        self = new Global(name, '(page parser and storage)'),
-        C = W.console,
+        self = new G.constructor(name, '(page parser and storage)'),
         Df;
 
     Df = { // DEFAULTS
-        cache: '<article>',
-        caches: {},
+        recent: null,
+        holder: '<article>',
+
         home: 'h1 img.home',
-        mobile: '#Mobile',
+        mobileEle: '#Mobile',
+        headerEle: 'header',
         navurl: '_nav.html',
-        port: 'section.port',
-        ports: {},
-        stored: {
-            'foo': 'bar',
-        },
+        headurl: '_head.html',
+        point: 'section.port',
+        container: '.content',
+
+        extracts: {},
+        sources: {},
         inits: function () {
-            this.cache = $(this.cache);
-            this.mobile = $(this.mobile);
-            $.extend(this.caches, this.stored);
-            W.debug > 0 && C.debug(name, 'Df.inits\n', Df);
+            this.mobileEle = $(this.mobileEle);
+            this.headerEle = $(this.headerEle);
+            // this.point  set later after mobile loads?
+
+            if (U.debug()) {
+                C.debug(name, 'Df.inits\n', Df);
+            }
         },
     };
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    // HELPERS (defaults dependancy only)
+
+    function callback() {
+        C.debug.apply(C, [name, 'callback'].concat(arguments));
+    }
+
+    function append(page, sel) {
+        // this will only parse the children of top elements [html/body/head]
+        Df.recent = $(page.body).scout(sel || Df.container).children();
+        return Df.extracts[page.url].append(Df.recent);
+    }
+
+    function takeSource(url, cb) {
+        if (U.debug()) {
+            C.debug(name, 'takeSource', url);
+        }
+        return (Df.sources[url] = new G.Fetch(url, cb || callback));
+    }
+
+    function miniScrub(jq) {
+        var hold = $('<div>');              // make new bucket
+        jq.scout('.mini').children().appendTo(hold);
+        jq.empty();                         // rinse out non-mini nodes
+        jq.append(hold.children());         // bring back mini elements
+    }
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// INTERNAL
 
-    function _get(url, sel, cb) {
-        cb = (cb || Main.cb);
-        W.debug > 0 && C.debug(name + '_get', [url, sel]);
-
-        Df.select = sel;
-        return (Df.caches[url] = new Page(url, cb));
-    }
-
-    function _miniScrub(jq) {
-        var hold = $('<div>');
-        jq.scout('.mini').children().appendTo(hold);
-        jq.empty();
-        jq.append(hold.children());
-    }
-
-    function _postNav() {
-        Df.port = Df.mobile.find(Df.port).first(); // TRANSFORM
-        Df.home = $(Df.home).detach();
-    }
-
-    function _append(page) {
-        // this will only parse the children of top elements [html/body/head]
-        Df.parse = $(page.body).scout(Df.select).children();
-        Df.ports[page.url].append(Df.parse);
-
-        if (page.url === Df.navurl) {
-            _postNav();
-        }
-    }
-
-    function _homeBtn(jq) {
-        Df.home.clone().click(Mobile.home).prependTo(jq);
-    }
-
-    function _loadNav(doing) { // get nav html
+    function _loadNav(defer) { // get nav html
         var url = Df.navurl;
 
-        Df.ports[url] = Df.mobile;
-        if (Df.mobile.children().length) {
-            return doing.resolve();
-        }
+        Df.extracts[url] = Df.mobileEle;
 
-        return _get(url, '#Mobile', _append).jqxhr.promise(doing);
+        if (Df.mobileEle.children().length) {
+            return defer.resolve();
+        }
+        return takeSource(url, function (page) {
+            append(page, '#Mobile');
+            Df.point = Df.mobileEle.find(Df.point).first();
+            Df.home = $(Df.home).detach();
+        }).jqxhr.promise(defer);
     }
 
-    function _loadPage(url, naving) { // get content html
-        var jq = Df.ports[url];
+    function _loadHead(defer) { // get nav html
+        var url = Df.headurl;
+
+        Df.extracts[url] = Df.headerEle;
+
+        if (Df.headerEle.children().length) {
+            return defer.resolve();
+        }
+        return takeSource(url, function (page) {
+            append(page, 'header');
+        }).jqxhr.promise(defer);
+    }
+
+    function _extract(url, naving) { // get content html
+        var jq = Df.extracts[url];
 
         if (!jq) { // never loaded
-            jq = Df.cache.clone().hide();
-            Df.ports[url] = jq.appendTo(Df.port);
+            jq = $(Df.holder).hide();
+            Df.extracts[url] = jq.appendTo(Df.point);
 
-            _get(url, '#Feature', function (page) {
-                _append(page);
-                _miniScrub(Df.ports[url]);
-                _homeBtn(jq);
+            takeSource(url, function (page) {
+                append(page);
+                miniScrub(Df.extracts[url]);
+                Df.home.clone() //
+                .prependTo(jq).add('header') //
+                .click(Mobile.home);
             });
         }
         naving.resolve(jq);
     }
 
-    function _bindings() {
-        $.fn.scout = function (sel) { // find and/or filter
-            return this.filter(sel).add(this.find(sel));
-        };
-    }
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init(cb) {
         if (self.inited(true)) {
             return null;
         }
-
         Df.inits();
-        _bindings(); // extend jquery
-        _loadNav($.Deferred()).done(cb);
+
+        // extend jquery
+        $.fn.scout = function (sel) { // find and/or filter
+            return this.filter(sel).add(this.find(sel));
+        };
+
     }
 
-    W[name] = $.extend(true, self, {
+    $.extend(self, {
         _: function () {
             return Df;
         },
         init: _init,
-        page: _loadPage,
+        page: _extract,
+        nav: _loadNav, // bespoke vers of extract
+        head: _loadHead, // bespoke vers of extract
     });
 
     return self;
-
-}(window));
+}(jQuery, Glob, Util));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
