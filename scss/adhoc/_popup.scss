@@ -32,8 +32,8 @@ body {
         }
     }
     a.popup {
-        cursor: pointer;
         cursor: default;
+        cursor: pointer;
 
         img {
             border: 1px solid $light;

@@ -13,7 +13,6 @@ Glob = new Global('Glob');
     W.G = G;
     W.Load = {};
     W.Tests = $.Callbacks();
-    W.debug = 1;
 
     _.defaults(G, { /// all stubs terminated
         top: ROOT.dir + '/',
@@ -33,7 +32,7 @@ Glob = new Global('Glob');
             });
         });
     }
-    if (($.now() > new Date('2014/06/29')) || W.isIE || ROOT.conf.nom === 'wfmedia') {
+    if (W.isIE || ROOT.conf.nom === 'wfmedia') {
         W.debug--;
     }
     if (ROOT.conf.nom === 'localhost') {

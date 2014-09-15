@@ -45,44 +45,34 @@ var Popup = (function ($, G, U) { // IIFE
         });
     }
 
-    function _vid(i, e) {
-        var lnk = $(e),
-        vid = $('#' + lnk.data('title')),
-        div = vid.parent(),
-        vip;
+    function linkVid(evt) {
+        var me, stub;
 
-        lnk.bind('mouseup', function () {
-            div.trigger('show.vid');
-            return false;
-        }).attr('href', null);
+        me = $(evt.currentTarget);
+        stub = me.data('src');
 
-        if (div.data('vid')) {
-            return; // already bound
-        }
-
-        div.appendTo('body') //
-        .data('vid', true) //
-        .bind('show.vid', function () {
-            div.addClass('big');
-            if (!vip) {
-                return; // vip.currentTime(7);
-            }
-            vip.play();
-
-        }).bind('hide.vid', function () {
-            vip.pause();
-            div.removeClass('big');
-
-        }).bind('mouseup', function (evt) {
-            var who = evt.target.className.match('popup');
-            if (who && who.length) {
-                div.trigger('hide.vid');
-            }
+        me.attr({
+            href: '//www.youtube.com/embed/' + stub + '?rel=0&html5=1',
+            target: '_blank',
         });
-        // kicker
-        videojs(vid.prop('id')).ready(function () {
-            vip = this;
-            C.log('ready', vid, vip);
+        return true;
+    }
+
+    function embedVid(evt) {
+        var me, stub, vid, ifr, mod, tmp;
+        evt.preventDefault();
+
+        me = $(evt.currentTarget);
+        stub = me.data('src');
+        vid = $('div.modal.popup').addClass('big');
+        ifr = vid.find('iframe');
+
+        ifr.attr({
+            src: '//www.youtube.com/embed/' + stub + '?rel=0&html5=1',
+        });
+        vid.one('click', function () {
+            ifr.attr('src', '//www.youtube.com/embed/#?rel=0&html5=1');
+            vid.removeClass('big');
         });
     }
 
@@ -90,7 +80,9 @@ var Popup = (function ($, G, U) { // IIFE
         try {
             if (!Main.mobile) {
                 $('a.popup.pic').each(_pic);
-                $('a.popup.vid').each(_vid);
+                $('a.popup.vid').on('click touchend', function (evt) {
+                    return jsView.mobile.agent() ? linkVid(evt) : embedVid(evt); // linkVid is used since mobile.agent returns for ipads
+                });
             }
         } catch (err) {
             return err;
@@ -112,8 +104,6 @@ var Popup = (function ($, G, U) { // IIFE
             return Df;
         },
         init: _init,
-        popupPic: _pic,
-        popupVid: _vid,
     });
 
     return self;
