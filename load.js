@@ -57,7 +57,8 @@ Glob = new Global('Glob');
             Data = new G.constructor('Data', '(catchall data fixture)');
             // Replace element with an <iframe> and player after the API code downloads.
             W.onYouTubePlayerAPIReady = function () {
-                C.log('onYouTubePlayerAPIReady');
+                C.log('onYouTubePlayerAPIReady', W.YT);
+                return W.YT;
             };
         },
     };

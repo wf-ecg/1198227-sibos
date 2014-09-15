@@ -59,17 +59,18 @@ var Popup = (function ($, G, U) { // IIFE
     }
 
     function embedVid(evt) {
-        var me, stub, vid, ifr, mod, tmp;
+        var me, stub, vid, tmp;
         evt.preventDefault();
 
         me = $(evt.currentTarget);
         stub = me.data('src');
         vid = $('div.modal.popup').addClass('big');
-
-        if (player.getVideoData().video_id !== stub) {
+        tmp = player.getVideoData && player.getVideoData();
+        C.warn(tmp);
+        if (tmp && tmp.video_id !== stub) {
             player.loadVideoById(stub);
         }
-        vid.one('click', function () {
+        vid.on('click', function () {
             vid.removeClass('big');
             player.pauseVideo();
         });
@@ -77,6 +78,10 @@ var Popup = (function ($, G, U) { // IIFE
     }
 
     function _binding() {
+        if (!W.onYouTubePlayerAPIReady()) {
+            return _.delay(_binding, 99);
+        }
+
         player = new YT.Player('Yt', {
             height: '480',
             width: '853',
@@ -85,7 +90,7 @@ var Popup = (function ($, G, U) { // IIFE
         try {
             if (!Main.mobile) {
                 $('a.popup.pic').each(_pic);
-                $('a.popup.vid').on('click touchend', function (evt) {
+                $('a.popup.vid').on('mousedown touchend', function (evt) {
                     return jsView.mobile.agent() ? linkVid(evt) : embedVid(evt); // linkVid is used since mobile.agent returns for ipads
                 });
             }
