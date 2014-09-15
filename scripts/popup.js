@@ -1,12 +1,12 @@
 /*jslint es5:true, white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Main, videojs, */
+        Main, YT, videojs, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Popup = (function ($, G, U) { // IIFE
     'use strict';
     var name = 'Popup',
         self = new G.constructor(name, '(popup background and display media)'),
-        Df;
+        Df, player;
 
     Df = { // DEFAULTS
     };
@@ -65,18 +65,23 @@ var Popup = (function ($, G, U) { // IIFE
         me = $(evt.currentTarget);
         stub = me.data('src');
         vid = $('div.modal.popup').addClass('big');
-        ifr = vid.find('iframe');
 
-        ifr.attr({
-            src: '//www.youtube.com/embed/' + stub + '?rel=0&html5=1',
-        });
+        if (player.getVideoData().video_id !== stub) {
+            player.loadVideoById(stub);
+        }
         vid.one('click', function () {
-            ifr.attr('src', '//www.youtube.com/embed/#?rel=0&html5=1');
             vid.removeClass('big');
+            player.pauseVideo();
         });
+        player.playVideo();
     }
 
     function _binding() {
+        player = new YT.Player('Yt', {
+            height: '480',
+            width: '853',
+            videoId: 'M7lc1UVf-VE'
+        });
         try {
             if (!Main.mobile) {
                 $('a.popup.pic').each(_pic);

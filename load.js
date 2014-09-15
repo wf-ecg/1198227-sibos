@@ -3,7 +3,7 @@
     Glob:true, Main, Modernizr, Popup, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 'use strict';
-var Data, Glob, Load, Tests, ShareStrings, switchTo5x = true;
+var Data, Glob, Load, Tests, ShareStrings, switchTo5x = true, player;
 
 Glob = new Global('Glob');
 
@@ -46,8 +46,7 @@ Glob = new Global('Glob');
             G.lib + 'ie/respond.min.js',
             ],
         both: [
-            G.lib + 'video-js/4.2.1/video-js.css',
-            G.lib + 'video-js/4.2.1/video.dev.js',
+            'https://www.youtube.com/player_api',
             /* */
             G.loc + 'js-mobi.js',
             G.loc + 'js-view.js',
@@ -56,6 +55,10 @@ Glob = new Global('Glob');
             ],
         complete: function () {
             Data = new G.constructor('Data', '(catchall data fixture)');
+            // Replace element with an <iframe> and player after the API code downloads.
+            W.onYouTubePlayerAPIReady = function () {
+                C.log('onYouTubePlayerAPIReady');
+            };
         },
     };
 
