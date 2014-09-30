@@ -1,4 +1,4 @@
-/*jslint es5:true, white:false, evil:true  */
+/*jslint white:false, evil:true  */
 /*globals Global, View, jQuery, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Util = (function (W, $) { /// IIFE

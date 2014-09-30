@@ -1,4 +1,4 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
         Fetch:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

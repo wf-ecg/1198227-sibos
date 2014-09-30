@@ -1,4 +1,4 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
