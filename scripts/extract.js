@@ -1,4 +1,4 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
         Main, Mobile, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -50,7 +50,8 @@ var Extract = (function ($, G, U) { // IIFE
         if (U.debug()) {
             C.debug(name, 'takeSource', url);
         }
-        return (Df.sources[url] = new G.Fetch(url, cb || callback));
+        Df.sources[url] = new G.Fetch(url, cb || callback);
+        return (Df.sources[url]);
     }
 
     function miniScrub(jq) {

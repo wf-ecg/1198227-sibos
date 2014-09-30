@@ -1,6 +1,6 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Banner, Extract, Mobile, Popup, Scroll, ShareStrings:true, jsMobi, jsView, ROOT, */
+        Banner, Extract, Main:true, Mobile, Popup, Scroll, ShareStrings:true, jsMobi, jsView, ROOT, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Main = (function ($, G, U) { // IIFE
     'use strict';
@@ -75,8 +75,8 @@ var Main = (function ($, G, U) { // IIFE
         $('a[href="./' + page + '"]').first().addClass('active');
     }
 
-    function startRotator() {
-        var div = $(this);
+    function startRotator(i, e) {
+        var div = $(e);
         var all = div.find('a');
         var next = -1;
         var ln = all.length;
@@ -89,12 +89,13 @@ var Main = (function ($, G, U) { // IIFE
         div.height(div.height());
         all.css('position', 'absolute');
 
-        (loop = function () {
+        loop = function () {
             all.eq(next).fadeOut(fade).end() //
             .eq(next = (next + 1) % ln).fadeIn(fade);
             // repeat every 5 seconds
             W.setTimeout(loop, time);
-        })();
+        };
+        loop();
     }
 
     function _binder() {
