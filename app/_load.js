@@ -17,7 +17,7 @@ Glob = new Global('Glob');
         top: ROOT.dir + '/',
         dir: ROOT.dir + '/',
         lib: ROOT.lib + '/',
-        loc: ROOT.dir + '/lib/',
+        loc: ROOT.dir + '/libs/',
         src: ROOT.dir + '/scripts/',
     });
 

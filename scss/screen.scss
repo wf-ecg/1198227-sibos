@@ -8,5 +8,27 @@
 @import "adhoc/_all";
 @import "desktop/_all";
 @import "mobile/_all";
+
+.dev *:hover {
+    outline-color: rgba(255,155,055,0.5);
+    outline-offset: 0.5px;
+    outline-style: solid;
+    outline-width: 1px;
+}
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+@media print {
+    body {
+        background: none;
+    }
+    .noprint {
+        display: none;
+    }
+    #Popup {
+        display: block;
+    }
+    #Desktop {
+        display: none;
+    }
+}
+@import "_misc";
 /* >^º!º^< */
