@@ -1,6 +1,6 @@
 /*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Extract, Main, jsMobi, jsView, */
+        Extract, Main, Mobile:true, jsMobi, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Mobile = (function ($, G, U) { // IIFE
     'use strict';

@@ -2,7 +2,6 @@
 /*globals _, C, W, ROOT, Global, Util, jQuery,
     Glob:true, Main, Modernizr, Popup, Typekit */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-'use strict';
 var Data, Glob, Load, Tests, ShareStrings, switchTo5x = true;
 
 Glob = new Global('Glob');
