@@ -2,6 +2,7 @@
 /*globals window, jQuery */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var jsView = (function (W, $) { // IIFE
+    'use strict';
     var C = W.console,
         D = W.document,
         E = D.documentElement,

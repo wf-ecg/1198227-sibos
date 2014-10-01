@@ -2,6 +2,7 @@
 /*globals window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var jsMobi = (function (W) { // IIFE
+    'use strict';
     var C = W.console,
         N = W.navigator,
         name = 'jsMobi',

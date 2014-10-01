@@ -15,6 +15,10 @@ var Main = (function ($, G, U) { // IIFE
             } else {
                 jsMobi.insist();
             }
+            C.info('Main init @ ' + Date(), {
+                debug: W.debug,
+                mode: ROOT.evil,
+            });
         },
     };
 
@@ -110,7 +114,6 @@ var Main = (function ($, G, U) { // IIFE
         if (self.inited(true)) {
             return null;
         }
-        C.info('Main init @ ' + Date() + ' debug:', W.debug, self.mode);
         Df.inits();
 
         dfInit();
@@ -138,9 +141,9 @@ var Main = (function ($, G, U) { // IIFE
             return Df;
         },
         init: _init,
-        page: _whatPage,
         mobile: !!jsMobi.any(),
         noext: _noExt,
+        page: _whatPage,
         cb: function () {
             C.debug.apply(C, [name, 'callback'].concat(arguments));
         },

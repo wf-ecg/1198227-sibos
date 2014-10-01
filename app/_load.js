@@ -14,11 +14,9 @@ Glob = new Global('Glob');
     G.Load = {};
 
     _.defaults(G, { /// all stubs terminated
-        top: ROOT.dir + '/',
         dir: ROOT.dir + '/',
         lib: ROOT.lib + '/',
-        loc: ROOT.dir + '/libs/',
-        src: ROOT.dir + '/scripts/',
+        ven: ROOT.dir + '/vendor/',
     });
 
     if ($.browser.msie) {
@@ -30,6 +28,7 @@ Glob = new Global('Glob');
                 $(this).removeClass('hover');
             });
         });
+        W.debug--;
     }
     if (ROOT.conf.nom === 'wfmedia' || ROOT.conf.nom === 'mfal') {
         W.debug--;
@@ -41,21 +40,14 @@ Glob = new Global('Glob');
     G.Load.base = {
         test: W.isIE,
         yep: [
-            G.lib + 'ie/split.js',
-            G.lib + 'ie/respond.min.js',
-        ],
-        nope: [
-            G.lib + 'iscroll/5.1.1/iscroll.js',
+            G.ven + 'msie/split.js',
+            G.ven + 'msie/respond.min.js',
         ],
         both: [
             G.lib + 'video-js/4.2.1/video-js.css',
             G.lib + 'video-js/4.2.1/video.dev.js',
             /* */
-            G.loc + 'js-mobi.js',
-            G.loc + 'js-view.js',
-            G.loc + '_util.js',
-            G.loc + 'fetch.js',
-            'build/lib.js',
+            G.dir + 'build/lib.js',
         ],
         complete: function () {
             U = Util;
@@ -88,30 +80,22 @@ Glob = new Global('Glob');
 
     G.Load.main = {
         both: [
-            // G.src + 'banner.js',
-            // G.src + 'extract.js',
-            // G.src + 'metas.js',
-            // G.src + 'mobile.js',
-            // G.src + 'popup.js',
-            // G.src + 'scroll.js',
-            // G.src + '_main.js',
-            'build/src.js',
-            ],
+            G.dir + 'build/src.js',
+        ],
         complete: function () {
-            _.delay(function () {
-                ROOT.loaded($);
-            }, 2e3);
-            evil(W.Main && W.Main.init());
+            _.delay(function () {}, 33);
+            ROOT.loaded($);
+            eval(W.Main && W.Main.init());
         },
     };
 
     G.Load.test = {
         test: W.debug >= 1,
-        yep: [G.src + 'tests.js'],
+        //yep: ['_tests.js'],
         nope: [
             'http://www.wellsfargomedia.com/lib/js/ga-ecg.js',
-            G.loc + 'sharelib.js',
-            G.src + 'sharecfg.js',
+            G.ven + 'sharethis.lib.js',
+            G.ven + 'sharethis.cfg.js',
         ],
     };
     M.load([G.Load.base, G.Load.font, G.Load.main, G.Load.test]);

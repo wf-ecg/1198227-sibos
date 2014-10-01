@@ -15,8 +15,8 @@ var Extract = (function ($, G, U) { // IIFE
         home: 'h1 img.home',
         mobileEle: '#Mobile',
         headerEle: 'header',
-        navurl: '_nav.html',
-        headurl: '_head.html',
+        navurl: '__nav.html',
+        headurl: '__head.html',
         point: 'section.port',
         container: '.content',
 
