@@ -74,6 +74,8 @@ W.ROOT = ({
         if (C && C.groupCollapsed) {
             C.groupEnd();
         }
+        delete this.reload;
+        delete this.loaded;
     },
     init: function () {
         'use strict';
@@ -92,7 +94,7 @@ W.ROOT = ({
     },
     reload: function () {
         var u = this.L.host.split(':');
-        if (u.length === 2 && u[1] > 8000) {
+        if (u.length === 2 && u[1] > 8000 && !W.LiveReload) {
             u = u[0] + ':' + (u[1] - 1000) + '/livereload.js?snipver=1';
             this.D.write('<script src="http://' + u + '"><\/script>');
         }
