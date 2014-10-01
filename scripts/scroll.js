@@ -12,7 +12,7 @@ var Scroll = (function ($, G, U) { // IIFE
         box: $(W.isIE ? 'html' : 'body'),
         inits: function (cb) {},
         fixed: null,
-        funum: 200,
+        funum: 350,
         mysel: '.tofix',
     };
 
