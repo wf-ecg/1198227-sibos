@@ -1,6 +1,6 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Extract, Main, jsMobi, jsView, */
+        Extract, Main, Mobile:true, jsMobi, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Mobile = (function ($, G, U) { // IIFE
     'use strict';
@@ -51,12 +51,11 @@ var Mobile = (function ($, G, U) { // IIFE
     // HELPERS (defaults dependancy only)
 
     function isInternal(str) {
-        var ts1, ts2, ts3, ts4;
+        var ts1, ts2, ts3;
         ts1 = str.match(W.location.host);
-        ts2 = str.match('/pages/');
-        ts3 = str.match('.html');
-        ts4 = !str.match(/#./); // allow anchors to work
-        return (ts1 && ts2 && ts3 && ts4);
+        ts2 = str.match('.html');
+        ts3 = !str.match(/#./); // allow anchors to work
+        return (ts1 && ts2 && ts3);
     }
 
     function share(evt) {

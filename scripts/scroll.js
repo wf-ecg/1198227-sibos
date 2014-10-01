@@ -1,4 +1,4 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -12,7 +12,7 @@ var Scroll = (function ($, G, U) { // IIFE
         box: $(W.isIE ? 'html' : 'body'),
         inits: function (cb) {},
         fixed: null,
-        funum: 200,
+        funum: 320,
         mysel: '.tofix',
     };
 

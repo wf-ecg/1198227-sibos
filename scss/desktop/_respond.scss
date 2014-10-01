@@ -37,10 +37,10 @@ html {
     }
 }
 #Desktop .content {
-    html.dev & .mini {
+    html.debug & .mini {
         background-color: $hilite !important;
     }
-    html.dev & .elim {
+    html.debug & .elim {
         background-color: $dilite !important;
     }
 }
