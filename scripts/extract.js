@@ -1,4 +1,4 @@
-/*jslint es5:true, white:false */
+/*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
         Main, Mobile, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -15,8 +15,8 @@ var Extract = (function ($, G, U) { // IIFE
         home: 'h1 img.home',
         mobileEle: '#Mobile',
         headerEle: 'header',
-        navurl: '_nav.html',
-        headurl: '_head.html',
+        navurl: '__nav.html',
+        headurl: '__head.html',
         point: 'section.port',
         container: '.content',
 
@@ -50,7 +50,8 @@ var Extract = (function ($, G, U) { // IIFE
         if (U.debug()) {
             C.debug(name, 'takeSource', url);
         }
-        return (Df.sources[url] = new G.Fetch(url, cb || callback));
+        Df.sources[url] = new G.Fetch(url, cb || callback);
+        return (Df.sources[url]);
     }
 
     function miniScrub(jq) {

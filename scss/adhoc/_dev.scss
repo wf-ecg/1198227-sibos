@@ -7,7 +7,7 @@ $bzH: 900px; $dpH: 548px;
 $bzL: ($bzW - $dpW) / 2;
 $bzT: ($bzH - $dpH) / 2;
 
-html.dev {
+html.debug {
     body > div {
         outline: limegreen;
         outline-offset: -1px;
