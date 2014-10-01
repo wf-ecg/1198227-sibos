@@ -17,8 +17,6 @@ Glob = new Global('Glob');
         top: ROOT.dir + '/',
         dir: ROOT.dir + '/',
         lib: ROOT.lib + '/',
-        loc: ROOT.dir + '/libs/',
-        src: ROOT.dir + '/scripts/',
     });
 
     if ($.browser.msie) {
@@ -30,6 +28,7 @@ Glob = new Global('Glob');
                 $(this).removeClass('hover');
             });
         });
+        W.debug--;
     }
     if (ROOT.conf.nom === 'wfmedia' || ROOT.conf.nom === 'mfal') {
         W.debug--;
@@ -51,10 +50,10 @@ Glob = new Global('Glob');
             G.lib + 'video-js/4.2.1/video-js.css',
             G.lib + 'video-js/4.2.1/video.dev.js',
             /* */
-            G.loc + 'js-mobi.js',
-            G.loc + 'js-view.js',
-            G.loc + '_util.js',
-            G.loc + 'fetch.js',
+            // G.loc + 'js-mobi.js',
+            // G.loc + 'js-view.js',
+            // G.loc + '_util.js',
+            // G.loc + 'fetch.js',
             'build/lib.js',
         ],
         complete: function () {
@@ -100,14 +99,14 @@ Glob = new Global('Glob');
         complete: function () {
             _.delay(function () {
                 ROOT.loaded($);
-            }, 2e3);
-            evil(W.Main && W.Main.init());
+            }, 33);
+            eval(W.Main && W.Main.init());
         },
     };
 
     G.Load.test = {
-        test: W.debug >= 1,
-        yep: [G.src + 'tests.js'],
+        test: W.debug >= 0,
+        //yep: ['_tests.js'],
         nope: [
             'http://www.wellsfargomedia.com/lib/js/ga-ecg.js',
             G.loc + 'sharelib.js',

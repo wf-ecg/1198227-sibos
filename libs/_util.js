@@ -1,4 +1,4 @@
-/*jslint white:false, evil:true  */
+/*jslint white:false */
 /*globals Global, View, jQuery, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Util = (function (W, $) { /// IIFE
@@ -114,7 +114,6 @@ var Util = (function (W, $) { /// IIFE
         I: U.reflect,
         mobile: W.View && View.mobile,
         viewport: W.View && View.port,
-        testrict: "eval('var x=0'),(typeof(x)!=='number'?'':'non-')+'strict'",
     }, U);
 
     return self;
