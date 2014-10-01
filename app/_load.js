@@ -65,12 +65,12 @@ Glob = new Global('Glob');
         nope: [/*
             '//cloud.typography.com/6819872/620964/css/fonts.css', // Normal */
             '//cloud.typography.com/6819872/633184/css/fonts.css', // ScrnSmrt
-            '//use.typekit.net/cqz6fet.js',
+            //'//use.typekit.net/cqz6fet.js',
         ],
         complete: function () {
             try {
                 if (!G.Load.font.test) {
-                    Typekit.load();
+                    //Typekit.load();
                 }
             } catch (e) {
                 C.error('typekit');
