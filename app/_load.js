@@ -8,10 +8,8 @@ Glob = new Global('Glob');
 
 (function ($, M, G) {
     'use strict';
-    var U;
-    W.G = G;
-    W.Tests = $.Callbacks();
     G.Load = {};
+    W.Tests = $.Callbacks();
 
     _.defaults(G, { /// all stubs terminated
         dir: ROOT.dir + '/',
@@ -50,7 +48,6 @@ Glob = new Global('Glob');
             G.dir + 'build/lib.js',
         ],
         complete: function () {
-            U = Util;
             Data = new G.constructor('Data', '(catchall data fixture)');
         },
     };
@@ -81,17 +78,24 @@ Glob = new Global('Glob');
     G.Load.main = {
         both: [
             G.dir + 'build/src.js',
+            G.dir + '_main.js',
         ],
         complete: function () {
-            _.delay(function () {}, 33);
+            _.delay(function () {
+                if (W.isIE) {
+                    M.load(G.ven + 'msie/selectivizr-min.js');
+                }
+            }, 1e3);
+            Main.init();
             ROOT.loaded($);
-            eval(W.Main && W.Main.init());
         },
     };
 
     G.Load.test = {
         test: W.debug >= 1,
-        //yep: ['_tests.js'],
+        yep: [
+            G.dir + '_test.js',
+        ],
         nope: [
             'http://www.wellsfargomedia.com/lib/js/ga-ecg.js',
             G.ven + 'sharethis.lib.js',

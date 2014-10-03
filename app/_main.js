@@ -17,11 +17,9 @@ var Main = (function ($, G, U) { // IIFE
             }
             C.info('Main init @ ' + Date(), {
                 debug: W.debug,
-                mode: ROOT.evil,
             });
         },
     };
-
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function dfInit() {
@@ -55,6 +53,8 @@ var Main = (function ($, G, U) { // IIFE
             C.error(e);
         }
     }
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// HANDLERS
 
     function _whatPage(x) {
         x = x || W.location.pathname;
@@ -109,6 +109,7 @@ var Main = (function ($, G, U) { // IIFE
     }
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    /// INTERNAL
 
     function _init() {
         if (self.inited(true)) {
@@ -140,6 +141,7 @@ var Main = (function ($, G, U) { // IIFE
         _: function () {
             return Df;
         },
+        __: Df,
         init: _init,
         mobile: !!jsMobi.any(),
         noext: _noExt,
