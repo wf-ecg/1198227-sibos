@@ -18,5 +18,10 @@
     "dependencies": {
         "grunt-sync": "^0.1.1",
         "load-grunt-tasks": "~0.2.0"
-    }
+    },
+    "bases": ["app", ".", "../../.."],
+    "group": "wf-ecg/1198227-sibos/0",
+    "port0": 7227,
+    "port1": 8227,
+    "zzzzz": 0
 }
