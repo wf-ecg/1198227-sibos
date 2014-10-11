@@ -13,7 +13,7 @@ Glob.Fetch = (function ($, G, U) { // IIFE
     /// HELPERS
     //  defaults dependancy only
 
-    function callback(){
+    function callback() {
         C.debug.apply(C, [name, 'logback'].concat(arguments));
     }
 
@@ -48,7 +48,7 @@ Glob.Fetch = (function ($, G, U) { // IIFE
             var str, exp, reg, arr = [];
 
             str = (data || this.jqxhr.responseText);
-            exp = ['<', tag, '.*?>','(.+?)','<\\/', tag, '>']; // tag search
+            exp = ['<', tag, '.*?>', '(.+?)', '<\\/', tag, '>']; // tag search
             reg = new RegExp(exp.join(''), 'g');
 
             str = str.split(/\s+/).join(' '); // compress space
