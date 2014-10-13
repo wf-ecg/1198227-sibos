@@ -7,19 +7,19 @@ module.exports = {
         files: [ {
             cwd: 'app',
             src: ['**/*'],
-            dest: '/web/docs/wf-ecg/1198227-sibos/9/'
+            dest: '/web/docs/<%= pkg.group %>/',
         }],
         //pretend: true,
         updateOnly: true, // Don't remove any files from `dest` (works around 30% faster)
-        verbose: true,
     },
     full: {
         files: [ {
             cwd: 'app',
             src: ['**/*'],
-            dest: '/web/docs/wf-ecg/1198227-sibos/9/'
+            dest: '/web/docs/<%= pkg.group %>/',
         }],
         //pretend: true,
         updateOnly: false, // Don't remove any files from `dest` (works around 30% faster)
+        verbose: true,
     },
 };
