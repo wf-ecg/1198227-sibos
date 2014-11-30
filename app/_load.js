@@ -45,7 +45,7 @@ Glob = new Global('Glob');
             G.lib + 'video-js/4.2.1/video-js.css',
             G.lib + 'video-js/4.2.1/video.dev.js',
             /* */
-            G.dir + 'build/lib.js',
+            G.dir + 'build/libs.min.js',
         ],
         complete: function () {
             Data = new G.constructor('Data', '(catchall data fixture)');
@@ -77,7 +77,7 @@ Glob = new Global('Glob');
 
     G.Load.main = {
         both: [
-            G.dir + 'build/src.js',
+            G.dir + 'build/main.js',
             G.dir + '_main.js',
         ],
         complete: function () {
