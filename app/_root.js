@@ -1,7 +1,7 @@
 /*jslint white:false, evil: true */
 /*globals window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var W = window,
+var W = window, /// change to Boot
 C = W.console;
 W.debug = Number(new Date('2014/09/29') > new Date());
 W.ROOT = ({
@@ -15,6 +15,11 @@ W.ROOT = ({
         'www.wellsfargomedia.com': {
             nom: 'wfmedia',
             sub: '/sibos/pages',
+        },
+        'ecg.hosting.wellsfargo.com': {
+            lib: '//www.wellsfargomedia.com/lib',
+            nom: 'mfal',
+            sub: '/mfal/foo/bar',
         },
         '10.89.101.100': {
             nom: 'qla2',
@@ -97,9 +102,13 @@ W.ROOT = ({
         var u = this.L.host.split(':');
         if (u.length === 2 && u[1] > 8000 && !W.LiveReload) {
             u = u[0] + ':' + (u[1] - 1000) + '/livereload.js?snipver=1';
-            this.D.write('<script src="http://' + u + '"><\/script>');
+            this.D.write('<script src="//' + u + '"><\/script>');
         }
     },
 }.init());
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*
+Originally built by WF-ECG INTERACTIVE (Wells Fargo Enterprise Creative Group).
+        We design and develop with a focus on web standards and best practices.
+*/
