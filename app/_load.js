@@ -42,9 +42,8 @@ Glob = new Global('Glob');
             G.ven + 'msie/respond.min.js',
         ],
         both: [
-            G.lib + 'video-js/4.2.1/video-js.css',
-            G.lib + 'video-js/4.2.1/video.dev.js',
-            /* */
+            /*G.lib + 'video-js/ecg/video-js.css',
+            G.lib + 'video-js/ecg/video.js',*/
             G.dir + 'build/libs.min.js',
         ],
         complete: function () {
@@ -98,6 +97,7 @@ Glob = new Global('Glob');
         ],
         nope: [
             'http://www.wellsfargomedia.com/lib/js/ga-ecg.js',
+            /*'http://www.wellsfargomedia.com/lib/video-js/videojs.ga.js',*/
             G.ven + 'sharethis.lib.js',
             G.ven + 'sharethis.cfg.js',
         ],
