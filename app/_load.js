@@ -93,7 +93,7 @@ Glob = new Global('Glob');
     G.Load.test = {
         test: W.debug >= 1,
         yep: [
-            G.dir + '_test.js',
+            /* G.dir + '_test.js', */
         ],
         nope: [
             'http://www.wellsfargomedia.com/lib/js/ga-ecg.js',
