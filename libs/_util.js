@@ -167,7 +167,7 @@ var Util = (function ($) { /// IIFE
 
     U.query = function (nom) {
         var A = W.location.search.slice(1).split('&'),
-            O = {};
+        O = {};
 
         $.each(A, function (i, e) {
             var x = e.split('=');
@@ -184,6 +184,20 @@ var Util = (function ($) { /// IIFE
         tmp = path.pop() || path.pop(); // trailing slash?
         path = tmp.match('index.') ? path.pop() : tmp; // get directory?
         return path.split('.').shift(); // remove any extension
+    };
+
+    U.pageId = function () {
+        var str = $('body').attr('id');
+        return (str || this.pathId()).toLowerCase();
+    };
+
+    U.time = function () {
+        var arr = $.now().toString().match(/\d{6,7}/g);
+        return {
+            all: arr.join(''),
+            big: arr[0],
+            lil: arr[1],
+        };
     };
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
