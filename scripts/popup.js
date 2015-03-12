@@ -92,7 +92,7 @@ var Popup = (function ($, G, U) { // IIFE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init(jq) {
-        if (self.inited(true)) {
+        if (self.isInited(true)) {
             return null;
         }
 

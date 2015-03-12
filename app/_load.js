@@ -1,10 +1,8 @@
 /*jslint white:false */
-/*globals _, C, W, Global, jQuery,
-    Glob:true, Main, Modernizr, Popup, Typekit, ROOT */
+/*globals _, C, W, Glob, jQuery,
+        Main, Modernizr, Popup, Typekit, ROOT */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var Data, Glob, Load, Tests, ShareStrings, switchTo5x = true;
-
-Glob = new Global('Glob');
+var Data, Load, Tests, ShareStrings, switchTo5x = true;
 
 (function ($, M, G) {
     'use strict';
