@@ -115,6 +115,6 @@ var jsView = (function (W, $) { // IIFE
 
 /*
 
-
+    TODO: integrate into other js-view efforts
 
  */

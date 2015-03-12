@@ -113,7 +113,7 @@ var Extract = (function ($, G, U) { // IIFE
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     function _init(cb) {
-        if (self.inited(true)) {
+        if (self.isInited(true)) {
             return null;
         }
         Df.inits();

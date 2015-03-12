@@ -1,6 +1,7 @@
 /*jslint white:false */
 /*globals _, C, W, Glob, Util, jQuery,
-        Banner, Extract, Main:true, Mobile, Popup, Scroll, ShareStrings:true, jsMobi, jsView, ROOT, */
+        Banner, Extract, Main:true, Mobile, Popup, Scroll,
+    ShareStrings:true, jsMobi, jsView, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var Main = (function ($, G, U) { // IIFE
     'use strict';
@@ -112,7 +113,7 @@ var Main = (function ($, G, U) { // IIFE
     /// INTERNAL
 
     function _init() {
-        if (self.inited(true)) {
+        if (self.isInited(true)) {
             return null;
         }
         Df.inits();

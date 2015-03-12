@@ -1,12 +1,12 @@
 /*jslint white:false */
-/*globals _, C, W, ROOT, Global, jQuery,
+/*globals _, C, W, ROOT, Glob, jQuery,
         Util:true, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-var Util = (function ($) { /// IIFE
+var Util = (function ($, G) { /// IIFE
     'use strict';
     var name = 'Util',
-        self = new Global(name, '(limited utils)'),
+        self = new G.constructor(name, '(limited utils)'),
         U;
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     /// CONSTANTS
@@ -167,7 +167,7 @@ var Util = (function ($) { /// IIFE
 
     U.query = function (nom) {
         var A = W.location.search.slice(1).split('&'),
-            O = {};
+        O = {};
 
         $.each(A, function (i, e) {
             var x = e.split('=');
@@ -186,6 +186,20 @@ var Util = (function ($) { /// IIFE
         return path.split('.').shift(); // remove any extension
     };
 
+    U.pageId = function () {
+        var str = $('body').attr('id');
+        return (str || this.pathId()).toLowerCase();
+    };
+
+    U.time = function () {
+        var arr = $.now().toString().match(/\d{6,7}/g);
+        return {
+            all: arr.join(''),
+            big: arr[0],
+            lil: arr[1],
+        };
+    };
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
     $.extend(self, {
@@ -196,7 +210,7 @@ var Util = (function ($) { /// IIFE
     }, U);
 
     return self;
-}(jQuery));
+}(jQuery, Glob));
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*
