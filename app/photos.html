@@ -54,7 +54,9 @@
                             <div id="galleria">
                                 <script language="javascript" type="text/javascript">
 
-                                    var myRoot = 'http://www.wellsfargomedia.com/sibos';
+                                    var myRoot = window.location.href.toString().split('/').slice(0,-2).join('/');
+                                    myRoot = myRoot.indexOf('media') > 0 ? myRoot : 'http://www.wellsfargomedia.com/sibos';
+
                                     var myArray = ["_MG_8161", "_MG_8163", "_MG_8165", "_MG_8166", "_MG_8168", "_MG_8174", "_MG_8178", "_MG_8181", "_MG_8183", "_MG_8186", "_MG_8187", "_MG_8192", "_MG_8194", "_MG_8199", "_MG_8206", "_MG_8208", "_MG_8214", "_MG_8218", "_MG_8219", "_MG_8221", "_MG_8223", "_MG_8228", "_MG_8229", "_MG_8235", "_MG_8236", "_MG_8240", "_MG_8244",
                                         "_MG_8248", "_MG_8251", "_MG_8254", "_MG_8255", "_MG_8257", "_MG_8259", "_MG_8265", "_MG_8268", "_MG_8272", "_MG_8275", "_MG_8279", "_MG_8280", "_MG_8284", "_MG_8286", "_MG_8288", "_MG_8296", "_MG_8297", "_MG_8302", "_MG_8307", "_MG_8308", "_MG_8310", "_MG_8317", "_MG_8322", "_MG_8323", "_MG_8325", "_MG_8326", "_MG_8335", "_MG_8337",
                                         "_MG_8344", "_MG_8345", "_MG_8349", "_MG_8350", "_MG_8352", "_MG_8353", "_MG_8357", "_MG_8359", "_MG_8361", "_MG_8364", "_MG_8369", "_MG_8371", "_MG_8373", "_MG_8374", "_MG_8376", "_MG_8377", "_MG_8380", "_MG_8385", "_MG_8387", "_MG_8389", "_MG_8395", "_MG_8397", "_MG_8398", "_MG_8403", "_MG_8405", "_MG_8411", "_MG_8412", "_MG_8413",
